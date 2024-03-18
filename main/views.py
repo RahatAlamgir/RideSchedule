@@ -12,3 +12,9 @@ def schedule(request):
 
 def makeSchdedule(request):
     return render(request , template_name='pages/makeSchedule.html')
+
+def help(request):
+    return render(request , template_name='pages/help.html')
+
+def contact(request):
+    return render(request , template_name='pages/contact.html')
