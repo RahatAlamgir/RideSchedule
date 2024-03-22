@@ -74,7 +74,11 @@
 .dropdown {
     display:none;
     position:absolute;
+<<<<<<< HEAD
     
+=======
+    margin-top: 7px;
+>>>>>>> 8dab0edb4de60137ae4505722fa5fee93f5238d7
     margin-left: -15px;
     background-color: white;
     box-shadow: 0px 1px 1px 1px hsla(0,0%, 0%, 0.1);
