@@ -11,15 +11,13 @@
     <link rel = "stylesheet" href = "{% static 'css/navbar.css' %}">
 
 </head>
-<body style="background-image: url(static/image/background/bg1.png); background-size: cover; background-repeat: no-repeat;">
+<body>
 {% include "../base/navbar.html" %}
 {% include "../base/offcanvas.html" %}
 {% block content %}
 
 {% endblock %}
 {% include "../base/footer.html" %}
-
-
 
 </body>
 </html>
