@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import user,Driver,Rider,Schedule
 
 # Create your views here.
 def home(request):
@@ -20,4 +21,9 @@ def contact(request):
     return render(request , template_name='pages/contact.html')
 
 def schedulePost(request):
-    return render(request , template_name='pages/SchedulePost.html')
+    schedules = Schedule.objects.all()
+
+    posts = {
+        'schedules': schedule,
+    }
+    return render(request , template_name='pages/SchedulePost.html' , context=posts)

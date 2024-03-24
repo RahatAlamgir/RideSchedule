@@ -8,14 +8,15 @@
     <div class="textBox3"><input type="text" id="locations" name="location" placeholder=".location"></div>
     <div><a href="#" class="buttonS">search</a></div>
 </div>
+{% for p in posts %}
 <div class="post">
-     <span>start time</span>
+     <span>Start time:{{p.pickUp_time}}</span>
     <div>
-        <span>start address</span><br>
-        <span>end address</span>
+        <span>Pick Up address : {{p.pickup_from}}</span><br>
+        <span>Drop to address : {{p.drop_to}}</span>
     </div>
-    <div> schedule type: </div>
-    <div> price: </div>
+    <div> schedule type: {{p.type_of_schedule}}</div>
+    <div> price: {{p.price}}</div>
     <div>
         <span>Name: </span><br>
         <span>Phone: </span><br>
@@ -24,44 +25,10 @@
     <div>
         <img src="static/image/icon/profile.png" height="50" width="50" alt="logo">
     </div>
-
+{% endfor %}
 </div>
-<div class="post">
-     <span>start time</span>
-    <div>
-        <span>start address</span><br>
-        <span>end address</span>
-    </div>
-    <div> schedule type: </div>
-    <div> price: </div>
-    <div>
-        <span>Name: </span><br>
-        <span>Phone: </span><br>
-        <span>Rate: </span><br>
-    </div>
-    <div>
-        <img src="static/image/icon/profile.png" height="50" width="50" alt="logo">
-    </div>
 
-</div>
-<div class="post">
-     <span>start time</span>
-    <div>
-        <span>start address</span><br>
-        <span>end address</span>
-    </div>
-    <div> schedule type: </div>
-    <div> price: </div>
-    <div>
-        <span>Name: </span><br>
-        <span>Phone: </span><br>
-        <span>Rate: </span><br>
-    </div>
-    <div>
-        <img src="static/image/icon/profile.png" height="50" width="50" alt="logo">
-    </div>
 
-</div>
 
 
 
