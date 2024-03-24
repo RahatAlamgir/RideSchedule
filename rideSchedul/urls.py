@@ -27,4 +27,5 @@ urlpatterns = [
     path('makeSchedule/', a_view.makeSchdedule , name= 'makeSchedule'),
     path('help/', a_view.help , name = 'help'),
     path('contact/', a_view.contact , name = 'contact'),
+    path('schedulePost/', a_view.schedulePost , name = 'schedulePost'),
 ]

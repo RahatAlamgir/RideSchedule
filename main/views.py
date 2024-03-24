@@ -18,3 +18,6 @@ def help(request):
 
 def contact(request):
     return render(request , template_name='pages/contact.html')
+
+def schedulePost(request):
+    return render(request , template_name='pages/SchedulePost.html')
