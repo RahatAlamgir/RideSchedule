@@ -8,7 +8,7 @@
     <div class="textBox3"><input type="text" id="locations" name="location" placeholder=".location"></div>
     <div><a href="#" class="buttonS">search</a></div>
 </div>
-{% for p in posts %}
+{% for p in schedulePost %}
 <div class="post">
      <span>Start time:{{p.pickUp_time}}</span>
     <div>
@@ -25,9 +25,9 @@
     <div>
         <img src="static/image/icon/profile.png" height="50" width="50" alt="logo">
     </div>
-{% endfor %}
-</div>
 
+</div>
+{% endfor %}
 
 
 

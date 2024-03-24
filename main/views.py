@@ -21,9 +21,9 @@ def contact(request):
     return render(request , template_name='pages/contact.html')
 
 def schedulePost(request):
-    schedules = Schedule.objects.all()
+    schedulePost = Schedule.objects.all()
 
     posts = {
-        'schedules': schedule,
+        'schedulePost': schedulePost,
     }
     return render(request , template_name='pages/SchedulePost.html' , context=posts)
