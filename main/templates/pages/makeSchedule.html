@@ -1,22 +1,22 @@
 {% extends "../base/base.html" %}
 
 {% block content %}
-<h1>Make schedule</h1>
+<div class="container">
+         <div class="form">
+            <form action="#">
+               <div class="inputVal"><input type="text" id="location" name="location" placeholder="Enter location"></div>
 
-<form action="/action_page.php">
-  <label for="location">Enter location:</label><br>
-  <input type="text" id="location" name="location"><br><br>
-  <label for="destination">Enter destination:</label><br>
-  <input type="text" id="destination" name="destination"><br><br>
-  <label for="time">pick up time:</label><br>
-  <input type="text" id="time" name="time"><br><br>
-  <label for="date">set Date:</label><br>
-  <input type="text" id="date" name="date"><br><br>
-  <label for="duration">Schedule Duration:</label><br>
-  <input type="text" id="duration" name="duration"><br><br>
+               <div class="inputVal"><input type="text" id="location" name="location" placeholder="Enter destination"></div>
 
+               <div class="inputVal"><input type="text" id="location" name="location" placeholder="Enter location"></div>
 
-  <input type="submit" value="Submit">
-</form>
+               <div class="inputVal"><input type="text" id="location" name="location" placeholder="Enter location"></div>
+
+               <div class="inputVal"><input type="text" id="location" name="location" placeholder="Enter location"></div>
+
+               <div class="submitBtn"><input value="Submit" type="submit"></div>
+            </form>
+         </div>
+      </div>
 
 {% endblock %}
