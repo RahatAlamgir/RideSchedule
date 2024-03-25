@@ -1,5 +1,5 @@
 {% extends "../base/base.html" %}
-
+{% load static %}
 {% block content %}
 <hr>
 <div class="SearchPost">
@@ -10,7 +10,7 @@
 </div>
 {% for p in schedulePost %}
 <div class="post">
-     <span>Start time:{{p.pickUp_time}}</span>
+     <div class="sTime"> Start time:{{p.pickUp_time}}</div>
     <div>
         <span>Pick Up address : {{p.pickup_from}}</span><br>
         <span>Drop to address : {{p.drop_to}}</span>
@@ -18,12 +18,12 @@
     <div> schedule type: {{p.type_of_schedule}}</div>
     <div> price: {{p.price}}</div>
     <div>
-        <span>Name: </span><br>
-        <span>Phone: </span><br>
+        <span>Name: {{p.rider_id1.id.name}} </span><br>
+        <span>Phone: {{p.rider_id1.id.phone_number}}</span><br>
         <span>Rate: </span><br>
     </div>
-    <div>
-        <img src="static/image/icon/profile.png" height="50" width="50" alt="logo">
+    <div class="profile">
+        <img src="{%  static 'image/icon/profile.png' %}" height="60" width="60" alt="logo">
     </div>
 
 </div>
