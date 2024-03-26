@@ -15,16 +15,71 @@
     <link rel = "stylesheet" href = "{% static 'css/makeSchedule.css' %}">
     <link rel = "stylesheet" href = "{% static 'css/schedulePost.css' %}">
     <link rel = "stylesheet" href = "{% static 'css/offcanvas.css' %}">
+    <link rel = "stylesheet" href = "{% static 'css/login.css' %}">
 
 
 </head>
 <body style="background-color:#e6f9ff;">
+<div class="background-black close-card" id="bg">
+
+        </div>
 {% include "../base/navbar.html" %}
 {% include "../base/offcanvas.html" %}
+{% include "../base/login.html" %}
 {% block content %}
 
 {% endblock %}
 {% include "../base/footer.html" %}
+<script type="text/javascript">
+        function showLogin(){
+            var l=document.getElementById('login');
+            var r=document.getElementById('register');
+            var a=document.getElementById('choose');
+            l.classList.remove('close-card');
+            r.classList.add('close-card');
+            a.classList.add('close-card');
+        }
+        function showReg(){
+            var l=document.getElementById('login');
+            var r=document.getElementById('register');
+            var a=document.getElementById('choose');
+            l.classList.add('close-card');
+            r.classList.remove('close-card');
+            a.classList.add('close-card');
+        }
+        function showRegAs(){
+            var l=document.getElementById('login');
+            var r=document.getElementById('register');
+            var a=document.getElementById('choose');
+            l.classList.add('close-card');
+            r.classList.add('close-card');
+            a.classList.remove('close-card');
+        }
+        function showLoginOnly(){
+            var l=document.getElementById('login');
+            var b=document.getElementById('bg');
+            l.classList.remove('close-card')
+            b.classList.remove('close-card')
+        }
+        function hiddeLogin(){
+            var l=document.getElementById('login');
+            var b=document.getElementById('bg');
+            l.classList.add('close-card')
+            b.classList.add('close-card')
+        }
+        function hiddeReg(){
+            var r=document.getElementById('register');
+            var b=document.getElementById('bg');
+            r.classList.add('close-card')
+            b.classList.add('close-card')
+        }
+        function hiddeRegAs(){
+            var l=document.getElementById('choose');
+            var b=document.getElementById('bg');
+            l.classList.add('close-card')
+            b.classList.add('close-card')
+        }
 
+    </script>
 </body>
 </html>

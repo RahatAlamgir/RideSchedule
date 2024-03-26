@@ -1,0 +1,108 @@
+
+*{
+    margin:0px;
+    padding:0px;
+}
+.background-black{
+    display: block;
+    position:absolute;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+    z-index: 1;
+
+}
+.card-box{
+    
+    display: block;
+    margin-left: 40% ;
+    
+    margin-top:20vh;
+    position:absolute;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-color: #09B3E4;
+    border-style: solid;
+    border-width: 3px;
+    border-radius:25px;
+    align-content: center;
+    padding: 20px;
+    text-decoration: none;
+    z-index: 2;
+    span{
+        display: block;
+        text-align: center;
+        width: 260px;
+        
+    }
+
+}
+.card-box h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+#username ,#password{
+    font-size: 18px;
+    width: 250px;
+    border-radius: 25px;
+    padding: 5px;
+    margin:5px;
+    padding-left: 25px;
+}
+#username:hover ,#password:hover{
+    border-color: #09B3E4;
+}
+.small {
+    display:block;
+    text-decoration: none;
+    font-size: 15px;
+    width: 250px;
+    text-align: end;
+    color:#0491aa;
+
+}
+.small:hover{
+    color:blue;
+}
+.logbutton{
+    display:block;
+    font-size: 20px;
+    background-color: #09B3E4;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none; 
+    cursor: pointer;
+    border-radius: 25px;
+    margin: 10px;
+    width: 240px;
+
+}
+.logbutton:hover{
+    background-color: #4ac9ec;
+}
+
+.close-card{
+    display:none;
+}
+
+.closeC{
+    position:absolute;
+    font-size: 40px;
+    font-style: none;
+    text-decoration: none;
+    border-radius: 0px 20px 0 20px;
+    top:0px;
+    right:0px;
+    padding-right:10px;
+    padding-left: 10px;
+
+    color:white;
+    background-color: #09B3E4;
+}
+.closeC:hover{
+    color:red;
+}

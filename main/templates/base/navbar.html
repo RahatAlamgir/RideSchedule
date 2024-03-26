@@ -1,7 +1,7 @@
 <nav class="main" >
         <div class="logo">
             {% load static %}
-            <img src="{%  static 'image/icon/logo.png' %}" height="65" width="80" alt="logo">
+            <img src="{%  static 'image/icon/logo.png' %}" height="60" width="100" alt="logo">
             <span><span style="color: rgba(64, 155, 230, 0.863);">Ride</span> Schedule</span>
         </div>
         <div class="mid">
@@ -61,7 +61,7 @@
             </ul>
         </div>
         <div class="profile" >
-            <span>Login</span>
+            <div onclick="showLoginOnly()"><span>Login</span></div>
 
             <div onclick="showMenu()"><img  src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo"></div>
         </div>
