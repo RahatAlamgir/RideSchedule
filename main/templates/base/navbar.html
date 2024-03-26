@@ -6,43 +6,43 @@
         </div>
         <div class="mid">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#" class="service fix">Service </a>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#" class="service fix">Service <i class="fas fa-angle-down" style="font-size:18px;"></i> </a>
                     <div class="dropdown" >
                         <ul >
-                            <li><a href="schedule">Daily Schedule</a></li>
-                            <li><a href="schedule/">Weekly Schedule</a></li>
-                            <li><a href="schedule/">Monthly Schedule</a></li><hr>
-                            <li><a href="makeSchedule/">Custom Schedule</a></li>
+                            <li><a href="{% url 'schedule' %}">Daily Schedule</a></li>
+                            <li><a href="{% url 'schedule' %}">Weekly Schedule</a></li>
+                            <li><a href="{% url 'schedule' %}">Monthly Schedule</a></li><hr>
+                            <li><a href="{% url 'makeSchedule' %}">Custom Schedule</a></li>
                         </ul>
 
                     </div>
 
                 </li>
 
-                <li><a href="#" class="fix">Help</a>
+                <li><a href="#" class="fix">Help <i class="fas fa-angle-down" style="font-size:18px;"></i> </a>
                     <div class="dropdown" >
                         <ul >
-                            <li><a href="#">User help center</a></li>
-                            <li><a href="#">Rider help center</a></li>
-                            <li><a href="#">Walk in support center</a></li>
-                            <li><a href="#">How to join Ride Schedule</a></li>
+                            <li><a href="{% url 'help' %}">User help center</a></li>
+                            <li><a href="{% url 'help' %}">Rider help center</a></li>
+                            <li><a href="{% url 'help' %}">Walk in support center</a></li>
+                            <li><a href="{% url 'help' %}">How to join Ride Schedule</a></li>
                         </ul>
 
                     </div>
                 </li>
-                <li><a href="#" class="fix">Contact</a>
+                <li><a href="#" class="fix">Contact <i class="fas fa-angle-down" style="font-size:18px;"></i> </a>
                     <div class="dropdown" >
                         <ul >
-                            <li><a href="#">Send a message</a></li>
+                            <li><a href="{% url 'contact' %}">Send a message</a></li>
 
-                            <li><a href="#">Helpline +123456</a></li><hr>
+                            <li><a href="{% url 'contact' %}">Helpline +123456</a></li><hr>
                             <li><a href="#">ICONS</a></li>
                         </ul>
 
                     </div>
                 </li>
-                <li><a href="#" class="fix">More</a>
+                <li><a href="#" class="fix">More <i class="fas fa-angle-down" style="font-size:18px;"></i> </a>
                     <div class="dropdown" >
                         <ul >
                             <li><a href="#">Permissions</a></li>
@@ -56,9 +56,9 @@
                 </li>
             </ul>
         </div>
-        <div class="profile">
+        <div class="profile" >
             <span>Login</span>
 
-            <img src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo">
+            <div onclick="showMenu()"><img  src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo"></div>
         </div>
     </nav>

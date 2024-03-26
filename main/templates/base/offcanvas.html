@@ -1,0 +1,23 @@
+
+    <div class="menu" id="smenu">
+        <span class ="close" onclick="hideMenu()">&times;</span>
+        <h2>LOGO</h2>
+        <ul>
+            <li> <a href="#"><i class="fa fa-home"></i> HOME</a></li>
+            <li> <a href="#">ABOUT</a></li>
+            <li> <a href="#">COURSE</a></li>
+            <li> <a href="#">GALLERY</a></li>
+            <li> <a href="#">CONTACT</a></li>
+            <li> <a href="#">ENQUIRY</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        function showMenu(){
+            var m=document.getElementById('smenu');
+            m.classList.add('showMenu');
+        }
+        function hideMenu(){
+            var m=document.getElementById('smenu');
+            m.classList.remove('showMenu');
+        }
+    </script>

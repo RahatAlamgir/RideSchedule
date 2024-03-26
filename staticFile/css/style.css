@@ -1,3 +1,39 @@
-body{
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   overflow-y: hidden ;
+}
+.imagediv {
+   position: absolute;
+   height: 100vh;
+   width: 100%;
+   z-index: -1;
+   pointer-events: none;
+   background-color: #fff;
+   overflow-y: hidden ;
+}
+
+.body{
     background-color: #e6f9ff;
+
+
+}
+.button {
+   position: absolute;
+  background-color: #0491aa;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 25px;
+
+  bottom: 24%;
+  left:16%;
+}
+.button:hover{
+  background-color: #2fb2c9;
 }
