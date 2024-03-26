@@ -1,4 +1,4 @@
-<nav class="main">
+<nav class="main" >
         <div class="logo">
             {% load static %}
             <img src="{%  static 'image/icon/logo.png' %}" height="65" width="80" alt="logo">
@@ -34,10 +34,14 @@
                 <li><a href="#" class="fix">Contact <i class="fas fa-angle-down" style="font-size:18px;"></i> </a>
                     <div class="dropdown" >
                         <ul >
-                            <li><a href="{% url 'contact' %}">Send a message</a></li>
+                            <li><a href="{% url 'contact' %}"><i class="fa fa-comment"></i> Send a message</a></li>
 
-                            <li><a href="{% url 'contact' %}">Helpline +123456</a></li><hr>
-                            <li><a href="#">ICONS</a></li>
+                            <li><a href="{% url 'contact' %}"><i class="fa fa-phone"></i> Helpline +123456</a></li><hr>
+                            <li>&nbsp;&nbsp;
+                                <a href="#"><i class="fab fa-facebook" style="font-size:40px;"></i></a>
+                                <a href="#"><i class="fas fa-mail-bulk" style="font-size:40px; "></i></a>
+                                <a href="#"><i class="fab fa-twitter" style="font-size:40px;"></i></a>
+                            </li>
                         </ul>
 
                     </div>

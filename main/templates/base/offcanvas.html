@@ -3,11 +3,11 @@
         <span class ="close" onclick="hideMenu()">&times;</span>
         <h2>User Name</h2>
         <ul>
-            <li> <a href="#"><i class='fas fa-user-circle' style='font-size:16px'></i> Profile</a></li>
+            <li> <a href="{% url 'profile' %}"><i class='fas fa-user-circle' style='font-size:16px'></i> Profile</a></li>
             <li> <a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
             <li> <a href="#"><i class='fas fa-lock'></i> Change Password</a></li>
             <hr>
-            <li> <a href="#"><i class="fa fa-calendar"></i> All Schedule</a></li>
+            <li> <a href="{% url 'schedulePost' %}"><i class="fa fa-calendar"></i> All Schedule</a></li>
             <li> <a href="#"><i class="fa fa-money"></i> Payment</a></li>
             <li> <a href="#"><i class="fa fa-history"></i> History</a></li>
             <li> <a href="#"><i class="fa fa-home"></i> Saved Address</a></li>

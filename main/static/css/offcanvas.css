@@ -20,7 +20,7 @@
     transform: translate(0% , 0%);
     transition: 1s;
     float: right;
-   
+    opacity: 0.8;
 
 }
 .showMenu{
@@ -34,7 +34,7 @@
     
 }
 .menu ul li:hover{
-    background-color: radial-gradient(circle, red, yellow, green);
+    background-color:  rgb(78, 78, 78);
     border-color: white;
     border-width:1px;
     border-style:solid;
@@ -58,6 +58,9 @@
     cursor: pointer;
     position: absolute;
 
+}
+.close:hover{
+    color:red;
 }
 .smenu{
     left: 0%;
