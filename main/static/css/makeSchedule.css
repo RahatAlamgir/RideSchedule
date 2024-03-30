@@ -40,7 +40,6 @@
 
          
       }
-
       input[type='text'] {
          padding: 8px;
          font-size: 15px;
@@ -54,6 +53,7 @@
       }
    }
 }
+
 
 
 .submitBtn {
