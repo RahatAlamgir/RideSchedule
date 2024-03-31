@@ -1,0 +1,110 @@
+@import url('<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">')'
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+
+}
+.contact{
+    position: absolute;
+    min-height: 70vh;
+    padding:50px 100px;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    z-index: -1;
+
+
+}
+.contactFrom{
+    width: 40%;
+    padding: 40px;
+    background:#fff;
+    border-radius: 10px;
+    border-style:solid;
+    border-width: 4px;
+    border-color:#00bcd4;
+
+
+}
+.contactFrom h2{
+    font-size: 30px;
+    color:#333;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+.contactFrom .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+
+
+}
+.contactFrom .inputBox input,
+.contactFrom .inputBox textarea{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border:none;
+    border-bottom:2px solid #333;
+    outline:none;
+    resize: none;
+
+
+}
+.contactFrom .inputBox span
+{
+    position:absolute;
+    left:0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color:#666;
+    
+
+}
+
+
+
+.contactFrom .inputBox input:focus ~ span,
+.contactFrom .inputBox input:valid ~ span,
+.contactFrom .inputBox textarea:focus ~ span,
+.contactFrom .inputBox textarea:valid ~ span
+{
+    color:red;
+    font-size: 12px;
+    transform: translateY(-20px);
+    
+}
+.contactFrom .inputBox input[type="submit"]
+{
+    width: 100px;
+    background: #00bcd4;
+    color:#fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.contactFrom .inputBox input[type="submit"]:hover{
+    opacity: 80%;
+    cursor: pointer;
+    background-color: #e91e63;
+}
+@media(max-width:991px)
+{
+    .contact{
+        padding: 50px;
+
+    }
+    .contactFrom{
+        width:100%;
+    }
+
+}

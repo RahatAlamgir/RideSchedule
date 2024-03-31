@@ -2,12 +2,23 @@
 {% load static %}
 {% block content %}
 
-
 <div class="imagediv" >
-
-    <img src="{%  static 'image/background/bg1.png' %}"  alt="bg"  >
+    
+    <img src="{%  static 'image/background/bg3.png' %}"  alt="bg"  >
 </div>
-<a href="{% url 'makeSchedule' %}" class="button">Make your schedule ></a>
+
+
+<div class="home-main">
+    <div class="image-div">
+        <img src="{%  static 'image/img/scheduleNow.png' %}" class="scheduleNowImg" alt="bg" height="300" width="650">
+    </div>
+    
+    <a href="{% url 'makeSchedule' %}" class="button">Make your schedule ></a>
+    
+</div>
+
+
+
 
 
 

@@ -15,14 +15,31 @@
     background-color: black;
     position: fixed;
     top: 0px;
-    left: -25%;
+    left: 100%;
     z-index:3;
+    transform: translate(0% , 0%);
+    transition: 1s;
+    float: right;
+    opacity: 0.8;
 
 }
 .showMenu{
-    left:0%;
+    left:75%;
 }
+.menu ul{
+    list-style: none;
 
+    position: relative;
+    left:1px;
+    
+}
+.menu ul li:hover{
+    background-color:  rgb(78, 78, 78);
+    border-color: white;
+    border-width:1px;
+    border-style:solid;
+
+}
 .menu h2{
     color: white;
     padding: 25px;
@@ -33,6 +50,7 @@
     color :white;
     text-decoration: none;
 }
+
 .close{
     font-size: 40px ;
     color:white ;
@@ -40,6 +58,9 @@
     cursor: pointer;
     position: absolute;
 
+}
+.close:hover{
+    color:red;
 }
 .smenu{
     left: 0%;

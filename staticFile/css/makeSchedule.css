@@ -6,12 +6,6 @@
    box-sizing: border-box;
 }
 
-.makeSch {
-   background-image: url(static/image/background/bg2.png);
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-}
 
 .container {
    width: 100%;
@@ -24,7 +18,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-
+   margin-left: 100px;
 
    form {
       width: 100%;
@@ -34,7 +28,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      top: 23%;
+      top: 25%;
 
       .inputVal {
          width: 70%;
@@ -43,15 +37,24 @@
          flex-direction: column;
          justify-content: center;
          padding: 20px;
-      }
 
+         
+      }
       input[type='text'] {
          padding: 8px;
          font-size: 15px;
-
+         border-radius: 10px;
+         border-width: 1px;
+         
+      }
+      input[type='text']:hover{
+         border-width: 2px;
+         border-color: #0491aa;
       }
    }
 }
+
+
 
 .submitBtn {
    display: flex;
@@ -61,7 +64,16 @@
    padding-top: 10px;
 
    input[type='submit'] {
-      width: 50%;
+      width: 88%;
+      
+      border-radius: 10px;
+      border-style: none;
+      background-color: #0491aa;
+      color:white;
+   }
+   input[type='submit']:hover{
+      
+      background-color: #2fb2c9;
 
    }
 }

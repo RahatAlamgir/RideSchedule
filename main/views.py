@@ -20,6 +20,9 @@ def help(request):
 def contact(request):
     return render(request , template_name='pages/contact.html')
 
+def timeTable(request):
+    return render(request, template_name='pages/timeTable.html')
+
 def schedulePost(request):
     schedulePost = Schedule.objects.all()
 
