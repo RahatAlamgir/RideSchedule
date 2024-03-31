@@ -9,7 +9,8 @@
     cursor: pointer;
 
 }
-.menu{
+.menu , .notification{
+    display: block;
     width: 25%;
     height: 100vh;
     background-color: black;
@@ -33,6 +34,23 @@
     left:1px;
     
 }
+.notification ul{
+    list-style: none;
+    position: relative;
+    left:1px;
+    
+}
+.notification ul li a{
+    border-radius:10px;
+    background-color: rgb(39, 39, 39);
+    margin: 10px;
+
+}
+.notification ul li a:hover{
+    
+    background-color: rgb(78, 78, 78);
+
+}
 .menu ul li:hover{
     background-color:  rgb(78, 78, 78);
     border-color: white;
@@ -40,11 +58,14 @@
     border-style:solid;
 
 }
-.menu h2{
+.menu h2, .notification h2{
     color: white;
     padding: 25px;
 }
-.menu ul li a{
+
+.menu ul li a ,
+.notification ul li a
+{
     display: block;
     padding: 10px 15px;
     color :white;
@@ -62,6 +83,6 @@
 .close:hover{
     color:red;
 }
-.smenu{
+.smenu , .nmenu{
     left: 0%;
 }

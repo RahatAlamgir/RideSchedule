@@ -2,9 +2,9 @@
     <div class="menu" id="smenu">
         <span class ="close" onclick="hideMenu()">&times;</span>
         <h2>User Name</h2>
-        <ul>>
+        <ul>
             <li> <a href="{% url 'profile' %}"><i class='fas fa-user-circle' style='font-size:16px'></i> Profile</a></li>
-            <li> <a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+            <li> <a href="#" onclick="showNotification()"><i class="fa fa-bell-o"></i> Notification</a></li>
             <li> <a href="#"><i class='fas fa-lock'></i> Change Password</a></li>
             <hr>
             <li> <a href="{% url 'schedulePost' %}"><i class="fa fa-calendar"></i> All Schedule</a></li>
@@ -20,6 +20,17 @@
             <li> <a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
 
         </ul>
+        
+    </div>
+    <div class="notification" id="nmenu">
+        <span class ="close" onclick="hideNotification()">&times;</span>
+        <h2>Notifications</h2>
+        <ul> 
+            <li> <a href="#"> Notification</a></li>
+            <li> <a href="#"> Notification</a></li>
+            <li> <a href="#"> Notification</a></li>
+        </ul>
+        
     </div>
     <script type="text/javascript">
         function showMenu(){
@@ -29,5 +40,15 @@
         function hideMenu(){
             var m=document.getElementById('smenu');
             m.classList.remove('showMenu');
+        }
+        function hideNotification(){
+            showMenu();
+            var n=document.getElementById('nmenu');
+            n.classList.remove('showMenu');
+        }
+        function showNotification(){
+            hideMenu();
+            var m=document.getElementById('nmenu');
+            m.classList.add('showMenu');
         }
     </script>
