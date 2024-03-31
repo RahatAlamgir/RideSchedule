@@ -22,14 +22,14 @@
 .home-main{
    display: block;
    position:absolute;
-   width: 100%;
-   background-color: red;
-   border-style: solid;
-   border-width: 2px;
-   border-color:blue;
+   width: 30%;
+   height: 50%;
    
+   left:8%;
+   top:30vh;
 }
 .button {
+   position: absolute;
   background-color: #0491aa;
   border: none;
   color: white;
@@ -39,6 +39,9 @@
   font-size: 20px;
   cursor: pointer;
   border-radius: 25px;
+  left:20%;
+  margin-top:10px;
+
 }
 .button:hover{
   background-color: #2fb2c9;
