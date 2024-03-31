@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="imagediv">
-    <img src="{%  static 'image/background/bg2.png' %}" height="1080px" width="1920px" alt="bg">
+    <img src="{%  static 'image/background/bg3.png' %}" height="1080px" width="1920px" alt="bg">
 </div>
 <div class="container">
          <div class="form">
@@ -11,10 +11,18 @@
                <!-- <i class="fa-solid fa-circle"></i> -->
 
 
-               <div class="inputVal"><i class="fa fa-money"></i><input type="text" id="location" name="location" placeholder="Enter location">
+               <div class="inputlocation">
+                  <i class="fa fa-location"></i>
+                  <input type="text" id="location" name="location" placeholder="Enter location">
+                  <div>
+                      <i class="fas fa-angle-right" style="font-size:18px;">
+                  </div>
                </div>
 
-               <div class="inputVal"><input type="text" id="location" name="location" placeholder="Enter destination">
+               <div class="inputlocation">
+                  <i class="fa fa-location"></i>
+                  <input type="text" id="location" name="location" placeholder="Enter destination">
+                  
                </div>
 
                <div class="inputVal"><input type="text" id="location" name="location" placeholder="Pick up Time"></div>
@@ -30,13 +38,6 @@
       </div>
 
 
-      <script src="js/jquery-3.3.1.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/Headroom.js"></script>
-      <script src="js/jQuery.headroom.js"></script>
-      <script src="js/owl.carousel.min.js"></script>
-      <script src="js/smoothscroll.js"></script>
-      <script src="js/custom.js"></script>
+      
 
 {% endblock %}
