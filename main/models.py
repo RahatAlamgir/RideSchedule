@@ -8,12 +8,13 @@ class user(models.Model ):
     postal_Code = models.CharField(max_length = 10)
     country = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=11)
+    person = models.ImageField(blank=True, null=True)
     def __str__(self):
         return self.name
 
 class Rider(models.Model):
-    rider_id = models.CharField(max_length = 10,primary_key=True,blank=False,null=False)
-    id = models.ForeignKey(user,on_delete=models.CASCADE,blank=True,null=True)
+    rider_id = models.CharField(max_length = 10, primary_key=True, blank=False, null=False)
+    id = models.ForeignKey(user,on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
         return self.rider_id
 class Driver(models.Model):
