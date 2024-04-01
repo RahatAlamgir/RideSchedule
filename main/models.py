@@ -8,7 +8,7 @@ class user(models.Model ):
     postal_Code = models.CharField(max_length = 10)
     country = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=11)
-    persons = models.ImageField(upload_to = 'static/image',blank=True, null=True ,default="profile.png")
+    persons = models.ImageField(upload_to = 'static/image',blank=True, null=True ,default='image/profile.png')
     def __str__(self):
         return self.name
 
