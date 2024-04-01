@@ -1,7 +1,7 @@
 {% extends "../base/base.html" %}
 {% load static %}
 {% block content %}
-<form action="" method="POST" style="font-size:25px;">
+<form action="" method="POST" style="font-size:25px;" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p}}
     <input type="submit" name="Submit">

@@ -23,7 +23,11 @@
         <span>Rate: </span><br>
     </div>
     <div class="profile">
-        <img src="{{p.persons.url}}" height="60" width="60" alt="logo">
+
+        {% if p.rider_id1.id.persons %}
+             <img src="{{p.rider_id1.id.persons.url}}" height="60" width="60" alt="logo">
+        {% endif %}
+
     </div>
 
 </div>
