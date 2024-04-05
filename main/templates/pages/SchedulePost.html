@@ -8,9 +8,10 @@
     <div class="textBox3"><input type="text" id="locations" name="location" placeholder=".location"></div>
     <div><a href="#" class="buttonS">search</a></div>
 </div>
-{% for p in schedulePost %}
-<div class="post">
-     <div class="sTime"> Start time:{{p.pickUp_time}}</div>
+<div class="post-box">
+    {% for p in schedulePost %}
+    <div class="post">
+        <div class="sTime"> Start time:{{p.pickUp_time}}</div>
     <div>
         <span>Pick Up address : {{p.pickup_from}}</span><br>
         <span>Drop to address : {{p.drop_to}}</span>
@@ -25,7 +26,9 @@
     <div class="profile">
 
         {% if p.rider_id1.id.persons %}
-             <img src="{{p.rider_id1.id.persons.url}}" height="60" width="60" alt="logo">
+            <img src="{{p.rider_id1.id.persons.url}}" height="70" width="70" alt="logo">
+        {% else %}
+            <img src="{%  static 'image/icon/profile.png' %}" height="70" width="70" alt="logo">
         {% endif %}
 
     </div>
@@ -33,7 +36,7 @@
 </div>
 {% endfor %}
 
-
+</div>
 
 
 

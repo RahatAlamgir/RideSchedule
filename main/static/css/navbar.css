@@ -37,6 +37,7 @@
     color:black;
     border-radius: 0px;
     transition: 0.5s;
+    
 
 }
 .mid ul li a:hover{
@@ -83,6 +84,7 @@
     background-color: white;
     box-shadow: 0px 1px 1px 1px hsla(0,0%, 0%, 0.1);
     border-radius: 0 0 5px 5px;
+    
 
 }
 .dropdown ul{
@@ -92,10 +94,9 @@
 }
 .mid ul li:hover .dropdown{
     display: block;
+    
 }
 .dropdown ul li{
     padding: 10px;
-
-
 }
 
