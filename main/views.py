@@ -36,7 +36,7 @@ def timeTable(request):
     return render(request, template_name='pages/timeTable.html')
 
 def schedulePost(request):
-    schedulePost = Schedule.objects.all()
+    schedulePost = Schedule.objects.all().order_by("-pickUp_time")
 
     posts = {
         'schedulePost': schedulePost,

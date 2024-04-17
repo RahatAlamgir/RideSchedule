@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class user(models.Model ):
     id = models.CharField(max_length=10, primary_key=True,blank=False,null=False)
     name = models.CharField(max_length = 200)
@@ -8,7 +9,7 @@ class user(models.Model ):
     postal_Code = models.CharField(max_length = 10)
     country = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=11)
-    persons = models.ImageField(upload_to = 'static/image',blank=True, null=True ,default='image/profile.png')
+    persons = models.ImageField(upload_to = 'upload',blank=True, null=True ,default='image/profile.png')
     def __str__(self):
         return self.name
 
