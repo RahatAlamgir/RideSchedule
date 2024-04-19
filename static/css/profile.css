@@ -1,0 +1,70 @@
+.profilePic{
+    display:block;
+    position:absolute;
+    height:55vh;
+    top:5vh;
+    width: 40%;
+
+
+
+}
+.profilePic img{
+    display:block;
+    padding:4px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25vh;
+    border-color: aqua;
+    margin-top:15%;
+    margin-left:20%;
+
+}
+.profileInf{
+    display:block;
+    position:absolute;
+    top:5vh;
+    height:95vh;
+    width: 60%;
+    right:0px;
+    z-index:-99;
+
+
+}
+.profileRate{
+    display:block;
+    position:absolute;
+    height:40vh;
+    bottom:0px;
+    width: 40%;
+
+
+}
+.profileTable,
+.profileTableRate{
+    margin-left:10%;
+    margin-top:10%;
+    width: 70%;
+
+
+}
+.profileTableRate tr td{
+    padding:10px;
+    padding-left:20px;
+}
+.profileTable tr td{
+    font-size: 25px;
+    padding:10px;
+    padding-left:30px;
+
+}
+
+.profileTable tr:nth-child(odd),
+.profileTableRate tr:nth-child(odd){
+    background-color:#203955;
+    color:aliceblue;
+}
+.profileTable tr:nth-child(even),
+.profileTableRate tr:nth-child(even){
+    background-color:#30547e;
+    color:aliceblue;
+}

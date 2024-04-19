@@ -16,7 +16,7 @@ def schedule(request):
         form = ScheduleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Schedule')
+            return redirect('schedule')
 
     context = {
         'form': form,
