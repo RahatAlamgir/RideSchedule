@@ -20,15 +20,22 @@
 
         </div>
         <div class="card-box register close-card" id="register">
+            <form action="{% url 'home' %}" method="POST"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p}}
             <div onclick="hiddeReg()"><a href="#" class="closeC">&times;</a></div>
             <h1>Register</h1>
             <div class="username"><input type="text" id="username" name="username" placeholder=".full name"></div>
             <div class="username"><input type="text" id="username" name="email" placeholder=".email"></div>
             <div class="password"><input type="text" id="password" name="password" placeholder=".password"></div>
-            <div class="password"><input type="text" id="password" name="password" placeholder=".confirm password"></div>
-            <div><a href="#" class="logbutton">Create Account</a></div>
+            <div class="password"><input type="text" id="password" name="cpassword" placeholder=".confirm password"></div>
+            <div>
+                    <input type="submit" name="Create Account" class="logbutton">
+            </div>
             
             <div><a href="#" class="logbutton" onclick="showRegAs()">Back</a></div>
+
+            </form>
 
         </div>
         <div class="card-box choose close-card" id="choose">

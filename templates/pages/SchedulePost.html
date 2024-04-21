@@ -11,25 +11,25 @@
 <div class="post-box">
     {% for p in schedulePost %}
     <div class="post">
-        <div class="sTime"> Start time:{{p.pickUp_time}}</div>
+        <div class="sTime"> Start time:</div>
     <div>
-        <span>Pick Up address : {{p.pickup_from}}</span><br>
-        <span>Drop to address : {{p.drop_to}}</span>
+        <span>Pick Up address : /span><br>
+        <span>Drop to address :</span>
     </div>
-    <div> schedule type: {{p.type_of_schedule}}</div>
-    <div> price: {{p.price}}</div>
+    <div> schedule type: </div>
+    <div> price: </div>
     <div>
-        <span>Name: {{p.rider_id1.id.name}} </span><br>
-        <span>Phone: {{p.rider_id1.id.phone_number}}</span><br>
+        <span>Name: </span><br>
+        <span>Phone: </span><br>
         <span>Rate: </span><br>
     </div>
     <div class="profile">
 
-        {% if p.rider_id1.id.persons %}
+        {% comment %} {% if p.rider_id1.id.persons %}
             <img src="{{p.rider_id1.id.persons.url}}" height="70" width="70" alt="logo">
-        {% else %}
+        {% else %} {% endcomment %}
             <img src="{%  static 'image/icon/profile.png' %}" height="70" width="70" alt="logo">
-        {% endif %}
+       
 
     </div>
 

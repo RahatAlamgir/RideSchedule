@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import user , Rider,Driver,Schedule
+from .models import Profile,Schedule
 # Register your models here.
-admin.site.register([user,Rider,Driver,Schedule])
+admin.site.register([Profile,Schedule])
