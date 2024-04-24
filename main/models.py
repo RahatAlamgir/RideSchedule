@@ -15,7 +15,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='upload', null=True, blank=True)
 
     def __str__(self):
-        return self.user.first_name
+        return self.user.username
   
 
 class Schedule(models.Model):

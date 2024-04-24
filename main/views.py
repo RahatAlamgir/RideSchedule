@@ -4,42 +4,79 @@ from .scheduleForm import *
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login as userLogin
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 
 def createRider(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        
-        cpassword = request.POST['cpassword']
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        cpassword = request.POST.get('cpassword')
+        context = {
+                'm1' : 'Account already exists with this Username! or Confirm Password is wrong',
+                'm2' : 'username already exists',
+                'm3' : 'password does not match',
+                'username': username
+            }
 
-        address = request.POST['raddress']
-        country= request.POST['rcountry']
-        phone = request.POST['rphone']
-        rate = request.POST['rrate']
-
-        if password==cpassword:
+        if password==cpassword and uniqueUserName(username):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
 
             user.profile.isRider = True
-            user.profile.address = address
-            user.profile.phone = phone
-            user.profile.country = country
-            user.profile.rate = rate
             user.profile.save()
             user.save()
-            return render(request ,'pages/home.html', { 'username': username } )
+            return render(request , 'notification/welcome.html' , context)
+        else:
+            
+            return render(request , 'notification/createFail.html' , context)
         
     return render(request , template_name='pages/home.html')
         
 # Create your views here.
+
+def createDriver(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        cpassword = request.POST.get('cpassword')
+
+        context = {
+                'm1' : 'Account already exists with this Username! or Confirm Password is wrong',
+                'm2' : 'username already exists',
+                'm3' : 'password does not match',
+                'username': username
+            }
+
+        if password==cpassword and uniqueUserName(username):
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            return render(request , 'notification/welcome.html' , context)
+        else:
+            
+            return render(request , 'notification/createFail.html' , context)
+        
+    return render(request , template_name='pages/home.html')
+
+def uniqueUserName(uname):
+    users = User.objects.all()
+    usernames = [user.username for user in users]
+
+    if uname in usernames:
+        return False
+    return True
+
 def home(request):
     return render(request , template_name='pages/home.html')
 
 def profile(request):
     return render(request, template_name='pages/profile.html')
+
+def createFail(request):
+    return render(request ,template_name='notification/createFail.html')
 
 # def schedule(request):
 #     form = ScheduleForm()

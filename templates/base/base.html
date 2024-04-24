@@ -49,11 +49,25 @@
             r.classList.remove('close-card');
             a.classList.add('close-card');
         }
+        function showRegD(){
+            var l=document.getElementById('login');
+            var r=document.getElementById('register');
+            var a=document.getElementById('choose');
+            var d=document.getElementById('registerD');
+
+            l.classList.add('close-card');
+            d.classList.remove('close-card');
+            r.classList.add('close-card');
+            a.classList.add('close-card');
+        }
         function showRegAs(){
             var l=document.getElementById('login');
             var r=document.getElementById('register');
             var a=document.getElementById('choose');
+            var d=document.getElementById('registerD');
+
             l.classList.add('close-card');
+            d.classList.add('close-card');
             r.classList.add('close-card');
             a.classList.remove('close-card');
         }
@@ -72,8 +86,11 @@
         function hiddeReg(){
             var r=document.getElementById('register');
             var b=document.getElementById('bg');
+            var d=document.getElementById('registerD');
+
             r.classList.add('close-card')
             b.classList.add('close-card')
+            d.classList.add('close-card')
         }
         function hiddeRegAs(){
             var l=document.getElementById('choose');

@@ -31,6 +31,8 @@ urlpatterns = [
     path('contact/', a_view.contact , name = 'contact'),
     path('schedulePost/', a_view.schedulePost , name = 'schedulePost'),
     path('timeTable/', a_view.timeTable , name = 'timeTable'),
+    path('createRider/', a_view.createRider , name = 'createRider'),
+    path('createDriver/', a_view.createDriver , name = 'createDriver'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

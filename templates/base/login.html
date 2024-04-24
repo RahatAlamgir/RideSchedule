@@ -20,17 +20,42 @@
 
         </div>
         <div class="card-box register close-card" id="register">
-            <form action="{% url 'home' %}" method="POST"  enctype="multipart/form-data">
+            <form action="{% url 'createRider' %}" method="POST"  enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p}}
             <div onclick="hiddeReg()"><a href="#" class="closeC">&times;</a></div>
-            <h1>Register</h1>
+            <h1>Rider</h1>
             <div class="username"><input type="text" id="username" name="username" placeholder=".full name"></div>
             <div class="username"><input type="text" id="username" name="email" placeholder=".email"></div>
             <div class="password"><input type="text" id="password" name="password" placeholder=".password"></div>
             <div class="password"><input type="text" id="password" name="cpassword" placeholder=".confirm password"></div>
             <div>
-                    <input type="submit" name="Create Account" class="logbutton">
+                    <input type="submit" value="Create Account" class="logbutton">
+            </div>
+            
+            <div><a href="#" class="logbutton" onclick="showRegAs()">Back</a></div>
+
+            </form>
+
+            {% if messages %}
+            <div class="message">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+        <div class="card-box register close-card" id="registerD">
+            <form action="{% url 'createDriver' %}" method="POST"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <div onclick="hiddeReg()"><a href="#" class="closeC">&times;</a></div>
+            <h1>Driver</h1>
+            <div class="username"><input type="text" id="username" name="username" placeholder=".full name"></div>
+            <div class="username"><input type="text" id="username" name="email" placeholder=".email"></div>
+            <div class="password"><input type="text" id="password" name="password" placeholder=".password"></div>
+            <div class="password"><input type="text" id="password" name="cpassword" placeholder=".confirm password"></div>
+            <div>
+                    <input type="submit" value="Create Account" class="logbutton">
             </div>
             
             <div><a href="#" class="logbutton" onclick="showRegAs()">Back</a></div>
@@ -42,7 +67,7 @@
             <div onclick="hiddeRegAs()"><a href="#" class="closeC">&times;</a></div>
             <h1>Register As</h1>
             <div><a href="#" class="logbutton" onclick="showReg()">Rider</a></div>
-            <div><a href="#" class="logbutton" onclick="showReg()">Passenger</a></div>
+            <div><a href="#" class="logbutton" onclick="showRegD()">Driver</a></div>
             <div><a href="#" class="logbutton" onclick="showLogin()">Back</a></div>
         </div>
     </div>
