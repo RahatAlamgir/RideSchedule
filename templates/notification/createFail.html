@@ -1,5 +1,14 @@
 {% extends "../base/base.html" %}
 {% load static %}
 {% block content %}
-<h1>{{m1}}</h1>
+<section class="contact">
+
+            <div class="contactFrom" >
+                    <p>{{m1}}</p>
+                    
+                    <div><a href="{% url 'home' %}" class="logbutton">OK</a></div>
+            </div>
+
+        </div>
+</section>
 {% endblock %}

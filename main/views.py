@@ -73,6 +73,7 @@ def uniqueUserName(uname):
 def home(request):
     return render(request , template_name='pages/home.html')
 
+@login_required(login_url='login')
 def profile(request):
     return render(request, template_name='pages/profile.html')
 
@@ -101,9 +102,11 @@ def makeSchdedule(request):
 def help(request):
     return render(request, template_name='pages/help.html')
 
+
 def contact(request):
     return render(request, template_name='pages/contact.html')
 
+@login_required(login_url='login')
 def timeTable(request):
     return render(request, template_name='pages/timeTable.html')
 

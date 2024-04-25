@@ -63,9 +63,15 @@
             </ul>
         </div>
         <div class="profile" >
-        {% if user.is_authenticated %}         
+        {% if user.is_authenticated %}    
+            {% if request.user.profile.isRider %}                  
+                <i class='fa fa-user'></i>
+            {% else %} 
+                
+                <i class='fa fa-bicycle'></i>
+            {% endif %}       
             <div><span>{{request.user}}</span></div>
-            {% if request.user.profile.image %}
+            {% if request.user.profile.image %}        
                 <div onclick="showMenu()"><img  src="{{request.user.profile.image.url}}" height="50" width="50" alt="logo"></div>
             {% else %}
                 <div onclick="showMenu()"><img  src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo"></div>

@@ -1,7 +1,8 @@
 
     <div class="menu" id="smenu">
         <span class ="close" onclick="hideMenu()">&times;</span>
-        <h2>User Name</h2>
+        
+        <h2>{{request.user.username}}</h2>
         <ul>
             <li> <a href="{% url 'profile' %}"><i class='fas fa-user-circle' style='font-size:16px'></i> Profile</a></li>
             <li> <a href="#" onclick="showNotification()"><i class="fa fa-bell-o"></i> Notification</a></li>
