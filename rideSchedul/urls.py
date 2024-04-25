@@ -33,6 +33,8 @@ urlpatterns = [
     path('timeTable/', a_view.timeTable , name = 'timeTable'),
     path('createRider/', a_view.createRider , name = 'createRider'),
     path('createDriver/', a_view.createDriver , name = 'createDriver'),
+    path('loginUser/',a_view.loginUser,name='loginUser'),
+    path('logOutUser', a_view.logOutUser, name='logOutUser'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

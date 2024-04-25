@@ -3,8 +3,11 @@
 {% block content %}
 <div>
     <div class="profilePic">
-
-    <img src="{%  static 'image/icon/profile.png' %}" height="320" width="320" alt="logo">
+        {% if request.user.profile.image %}
+        <img src="{{request.user.profile.image.url}}" height="320" width="320" alt="logo">
+        {% else %}
+        <img  src="{%  static 'image/icon/profile.png' %}" height="320" width="320" alt="logo">
+        {% endif %}
 
     </div>
     <div class="profileRate">
@@ -13,7 +16,7 @@
                 <td>Ratings</td>
             </tr>
             <tr>
-                <td>4.75</td>
+                <td>{{request.user.profile.rate}}</td>
             </tr>
             <tr>
                 <td>Bike Model</td>
@@ -35,31 +38,37 @@
                 <td>Name</td>
             </tr>
             <tr>
-                <td>Ashraful Alom</td>
+                <td>{{request.user.first_name}} {{request.user.last_name}}</td>
+            </tr>
+            <tr>
+                <td>Username</td>
+            </tr>
+            <tr>
+                <td>{{request.user.username}}</td>
             </tr>
             <tr>
                 <td>Email</td>
             </tr>
             <tr>
-                <td>ashrafulalom21@gmail.com</td>
+                <td>{{request.user.email}}</td>
             </tr>
             <tr>
                 <td>Phone Number</td>
             </tr>
             <tr>
-                <td>+88017**-******</td>
+                <td>{{request.user.profile.phone}}</td>
             </tr>
             <tr>
-                <td>Gender</td>
+                <td>Address</td>
             </tr>
             <tr>
-                <td>Male</td>
+                <td>{{request.user.profile.address}}</td>
             </tr>
             <tr>
-                <td>Date of Birth</td>
+                <td>Country</td>
             </tr>
             <tr>
-                <td>10-11-2000</td>
+                <td>{{request.user.profile.country}}</td>
             </tr>
         </table>
     </div>

@@ -3,9 +3,10 @@ from .models import Profile, Schedule
 from .scheduleForm import *
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import get_user_model
-from django.contrib.auth import login as userLogin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def createRider(request):
@@ -118,8 +119,30 @@ def schedulePost(request):
     return render(request, template_name='pages/SchedulePost.html')
 
 
+def loginUser(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+            else:
+                context = { 'm1': 'wrong password or username does not exists'}
+                return render(request , 'notification/createFail.html' , context)
+
+        
+        return redirect('/')
+    
 
 
+def logOutUser(request):
+    auth.logout(request)
+    return redirect('/')
 
 
 

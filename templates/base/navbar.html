@@ -63,8 +63,16 @@
             </ul>
         </div>
         <div class="profile" >
+        {% if user.is_authenticated %}         
+            <div><span>{{request.user}}</span></div>
+            {% if request.user.profile.image %}
+                <div onclick="showMenu()"><img  src="{{request.user.profile.image.url}}" height="50" width="50" alt="logo"></div>
+            {% else %}
+                <div onclick="showMenu()"><img  src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo"></div>
+            {% endif %}
+        {% else %}
             <div onclick="showLoginOnly()"><span>Login</span></div>
-
-            <div onclick="showMenu()"><img  src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo"></div>
+            <div><img  src="{%  static 'image/icon/profile.png' %}" height="50" width="50" alt="logo"></div>
+        {% endif %}
         </div>
     </nav>
