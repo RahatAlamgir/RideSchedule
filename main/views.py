@@ -202,7 +202,7 @@ def changePassword(request):
 @login_required(login_url='login')
 def dailySchedule(request):
     if request.method == 'POST':
-        rider = request.user.username
+        rider = request.user.profile
         pickUp_time = request.POST.get('startTime')
         pickUp_from = request.POST.get('picklocation')
         drop_to = request.POST.get('droplocation')

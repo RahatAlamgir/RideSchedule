@@ -19,7 +19,7 @@ class Profile(models.Model):
   
 
 class Schedule(models.Model):
-    rider_id = models.CharField(null=True, blank=True,max_length=20)
+    rider_id = models.ForeignKey(Profile,on_delete=models.CASCADE)
     driver_id = models.CharField(blank=True,null=True,max_length=20)
     
     pickUp_time = models.CharField(max_length=10)
