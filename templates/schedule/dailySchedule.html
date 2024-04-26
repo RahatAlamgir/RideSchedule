@@ -1,0 +1,87 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% block content %}
+<div class="imagediv">
+    <img src="{%  static 'image/background/bg3.png' %}" height="1080px" width="1920px" alt="bg">
+</div>
+<div class="container">
+         <div class="form">
+            <form action="{% url 'dailySchedule' %}" method="POST">
+
+               {% csrf_token %}
+               <div class="inputlocation">
+                  <i class="fa fa-location"></i>
+                  <input type="text" id="locationL" name="picklocation" placeholder="Enter location">           
+               </div>
+
+               <div class="inputlocation">
+                  <i class="fa fa-location"></i>
+                  <input type="text" id="locationL" name="droplocation" placeholder="Enter destination">
+                 
+               </div>
+               <div>
+                  <span>Set your Ride Timing</span>
+               </div>
+               <div class="inputtime">
+                    <select id="timeL" name="startTime" >
+                        <option value="1:00 AM">1:00 AM</option>
+                        <option value="2:00 AM">2:00 AM</option>
+                        <option value="3:00 AM">3:00 AM</option>
+                        <option value="4:00 AM">4:00 AM</option>
+                        <option value="5:00 AM">5:00 AM</option>
+                        <option value="6:00 AM">6:00 AM</option>
+                        <option value="7:00 AM">7:00 AM</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 AM">12:00 AM</option>
+                        <option value="1:00 AM">1:00 PM</option>
+                        <option value="2:00 AM">2:00 PM</option>
+                        <option value="3:00 AM">3:00 PM</option>
+                        <option value="4:00 AM">4:00 PM</option>
+                        <option value="5:00 AM">5:00 PM</option>
+                        <option value="6:00 AM">6:00 PM</option>
+                        <option value="7:00 AM">7:00 PM</option>
+                        <option value="8:00 AM">8:00 PM</option>
+                        <option value="9:00 AM">9:00 PM</option>
+                        <option value="10:00 AM">10:00 PM</option>
+                        <option value="11:00 AM">11:00 PM</option>
+                        <option value="12:00 AM">12:00 PM</option>
+                        
+                    </select>
+                  {% comment %} <input type="text" id="timeL" name="startTime" placeholder="Start time"> {% endcomment %}
+                  
+               </div>
+               {% comment %} <div class="inputtime"> 
+                  <input type="text" id="timeL" name="endTime" placeholder="end time">
+                  
+               </div> {% endcomment %}
+               <div>
+                  <span>Starting Date</span>
+               </div>
+               <div class="inputtime"> 
+                  <input type="date" id="timeL" name="startDate" >
+                  
+               </div>
+               <div>
+                  <span>Ending Date</span>
+               </div>
+               <div class="inputtime"> 
+                  <input type="date" id="timeL" name="endDate">
+                  
+               </div>
+               <div class="inputtime"> 
+                  <input type="text" id="timeL" name="SPrice" placeholder="price">
+                  
+               </div>
+
+               <div class="submitBtn"><input value="Submit" type="submit"></div>
+            </form>
+         </div>
+      </div>
+
+
+      
+
+{% endblock %}

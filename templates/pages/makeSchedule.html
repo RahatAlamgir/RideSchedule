@@ -13,7 +13,7 @@
 
                <div class="inputlocation">
                   <i class="fa fa-location"></i>
-                  <input type="text" id="locationL" name="location" placeholder="Enter location">
+                  <input type="text" id="locationL" name="picklocation" placeholder="Enter location">
                   
                   
                   
@@ -21,7 +21,7 @@
 
                <div class="inputlocation">
                   <i class="fa fa-location"></i>
-                  <input type="text" id="locationL" name="location" placeholder="Enter destination">
+                  <input type="text" id="locationL" name="droplocation" placeholder="Enter destination">
                  
                </div>
                <div>
@@ -29,17 +29,18 @@
                </div>
                <div class="inputtime">
                   
-                  <input type="text" id="timeL" name="time" placeholder="Start time">
+                  <input type="text" id="timeL" name="startTime" placeholder="Start time">
                   
                </div>
+               {% comment %} <div class="inputtime"> 
+                  <input type="text" id="timeL" name="endTime" placeholder="end time">
+                  
+               </div> {% endcomment %}
                <div class="inputtime"> 
-                  <input type="text" id="timeL" name="time" placeholder="end time">
+                  <input type="text" id="timeL" name="SPrice" placeholder="price">
                   
                </div>
-               <div class="inputtime"> 
-                  <input type="text" id="timeL" name="time" placeholder="time duration">
-                  
-               </div>
+               
                <div class="weeks">
                   <a href="#" class="day">SUN</a>
                   <a href="#" class="day">MON</a>
@@ -49,9 +50,6 @@
                   <a href="#" class="day">FRI</a>  
                   <a href="#" class="day">SAT</a>
                </div>
-
-               
-
                <div class="submitBtn"><input value="Submit" type="submit"></div>
             </form>
          </div>

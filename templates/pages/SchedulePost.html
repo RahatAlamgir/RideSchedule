@@ -11,15 +11,18 @@
 <div class="post-box">
     {% for p in schedulePost %}
     <div class="post">
-        <div class="sTime"> Start time:</div>
+        <div class="sTime"> Start time:{{p.pickUp_time}}</div>
     <div>
-        <span>Pick Up address : /span><br>
-        <span>Drop to address :</span>
+        <span>Pick Up address : {{p.pickup_from}}</span><br>
+        <span>Drop to address :{{p.drop_to}}</span>
     </div>
-    <div> schedule type: </div>
-    <div> price: </div>
+    <div> schedule type: {{p.type_of_schedule}}<br><br>
+        {{p.startDate}} to {{p.endDate}}
+    
+    </div>
+    <div> price: {{p.price}}</div>
     <div>
-        <span>Name: </span><br>
+        <span>Name: {{p.rider_id}}</span><br>
         <span>Phone: </span><br>
         <span>Rate: </span><br>
     </div>

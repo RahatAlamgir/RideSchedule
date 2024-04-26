@@ -16,13 +16,7 @@ def createRider(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         cpassword = request.POST.get('cpassword')
-        context = {
-                'm1' : 'Account already exists with this Username! or Confirm Password is wrong',
-                'm2' : 'username already exists',
-                'm3' : 'password does not match',
-                'username': username
-            }
-
+        
         if password==cpassword and uniqueUserName(username):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
@@ -30,15 +24,26 @@ def createRider(request):
             user.profile.isRider = True
             user.profile.save()
             user.save()
-            return render(request , 'notification/welcome.html' , context)
+            context = { 
+                    'title':'Welcome',
+                    'm1': username,
+                    'm2':'your Rider account created successfully',
+                    'm3':'Make sure to remember your username or password to Login',
+                    'url':'home',
+                }
+            return render(request , 'notification/message.html' , context)
         else:
             
-            return render(request , 'notification/createFail.html' , context)
+            context = { 
+                    'title':'Fail!',
+                    'm1' : 'Account already exists with this Username! or Confirm Password is wrong',
+                    'm2': 'Try again',
+                    'url':'home',
+                }
+            return render(request , 'notification/message.html' , context)
         
     return render(request , template_name='pages/home.html')
         
-# Create your views here.
-
 def createDriver(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -46,20 +51,27 @@ def createDriver(request):
         password = request.POST.get('password')
         cpassword = request.POST.get('cpassword')
 
-        context = {
-                'm1' : 'Account already exists with this Username! or Confirm Password is wrong',
-                'm2' : 'username already exists',
-                'm3' : 'password does not match',
-                'username': username
-            }
 
         if password==cpassword and uniqueUserName(username):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
-            return render(request , 'notification/welcome.html' , context)
+            context = { 
+                    'title':'Welcome',
+                    'm1': username,
+                    'm2':'your Driver account created successfully',
+                    'm3':'Make sure to remember your username or password to Login',
+                    'url':'home',
+                }
+            return render(request , 'notification/message.html' , context)
         else:
             
-            return render(request , 'notification/createFail.html' , context)
+            context = { 
+                    'title':'Fail!',
+                    'm1' : 'Account already exists with this Username! or Confirm Password is wrong',
+                    'm2': 'Try again',
+                    'url':'home',
+                }
+            return render(request , 'notification/message.html' , context)
         
     return render(request , template_name='pages/home.html')
 
@@ -78,24 +90,6 @@ def home(request):
 def profile(request):
     return render(request, template_name='pages/profile.html')
 
-def createFail(request):
-    return render(request ,template_name='notification/createFail.html')
-
-# def schedule(request):
-#     form = ScheduleForm()
-#     if request.method == 'POST':
-#         form = ScheduleForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('schedule')
-
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'pages/Schedule.html', context=context)
-
-def schedule(request):
-    return render(request, template_name='pages/Schedule.html')
 
 def makeSchdedule(request):
     return render(request, template_name='pages/makeSchedule.html')
@@ -111,16 +105,16 @@ def contact(request):
 def timeTable(request):
     return render(request, template_name='pages/timeTable.html')
 
-# def schedulePost(request):
-#     schedulePost = Schedule.objects.all().order_by("-pickUp_time")
-
-#     posts = {
-#         'schedulePost': schedulePost,
-#     }
-#     return render(request, template_name='pages/SchedulePost.html', context=posts)
-
+@login_required(login_url='login')
 def schedulePost(request):
-    return render(request, template_name='pages/SchedulePost.html')
+    schedulePost = Schedule.objects.all().order_by("pickUp_time")
+
+    posts = {
+        'schedulePost': schedulePost,
+    }
+    return render(request, template_name='pages/SchedulePost.html', context=posts)
+
+
 
 
 def loginUser(request):
@@ -136,8 +130,12 @@ def loginUser(request):
                 login(request, user)
                 return redirect('/')
             else:
-                context = { 'm1': 'wrong password or username does not exists'}
-                return render(request , 'notification/createFail.html' , context)
+                context = { 
+                    'title':'Fail!',
+                    'm1': 'wrong password or username does not exists',
+                    'url':'home',
+                }
+                return render(request , 'notification/message.html' , context)
 
         
         return redirect('/')
@@ -166,7 +164,13 @@ def profileUpdate(request):
             formP.save()
         if formU.is_valid():
             formU.save()
-        return redirect('profile')
+        context = { 
+            'title':'Successfull',
+            'm1': request.user.username,
+            'm2':'your profile Update Successfull',
+            'url':'profile',
+            }
+        return render(request , 'notification/message.html' , context)
 
     context = {
         'formP':formP,
@@ -175,6 +179,7 @@ def profileUpdate(request):
 
     return render(request, 'update/profileUpdate.html',context)
 
+@login_required(login_url='login')
 def changePassword(request):
     form = ChangePassword()
     user = User.objects.get(username = request.user.username)
@@ -185,6 +190,34 @@ def changePassword(request):
         form = ChangePassword(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
+            context = { 
+            'title':'SuccessFull',
+            'm1': 'Password change successfull',
+            'url':'home',
+            }
+            return render(request , 'notification/message.html' , context)
         return redirect('/')
     return render(request, 'update/changePassword.html',{'form': form})
 
+@login_required(login_url='login')
+def dailySchedule(request):
+    if request.method == 'POST':
+        rider = request.user.username
+        pickUp_time = request.POST.get('startTime')
+        pickUp_from = request.POST.get('picklocation')
+        drop_to = request.POST.get('droplocation')
+        price = request.POST.get('SPrice')
+        startDate = request.POST.get('startDate')
+        endDate = request.POST.get('endDate')
+
+        schedule = Schedule.objects.create(rider_id=rider,pickUp_time=pickUp_time,pickup_from=pickUp_from,drop_to=drop_to,type_of_schedule='daily',price=price,startDate=startDate,endDate=endDate)
+        schedule.save()
+        context = { 
+            'title':'SuccessFull',
+            'm1': 'schedule create successfull',
+            'url':'home',
+            }
+        return render(request , 'notification/message.html' , context)
+
+
+    return render(request,'schedule/dailySchedule.html')

@@ -1,0 +1,16 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% block content %}
+<div class = "messageBox">
+        <div class = "messageTitle"><h1><b>{{title}}</b></h1>
+        </div>
+        <div class = "messagecart">{{m1}}</div>
+        <div class = "messagecart">{{m2}}</div>
+        <div class = "messagecart">{{m3}}</div>
+        <div class = "messagecart">{{m4}}</div>
+
+        <div class = "messagecart1">{{text1}}</div>
+        <div class = "messagecart1">{{text2}}</div>
+        <div class = "messageButton"><a href="{{url}}" class="mbutton">OK</a></div>
+    </div>
+{% endblock %}

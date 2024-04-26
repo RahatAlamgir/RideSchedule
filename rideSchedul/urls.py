@@ -25,18 +25,18 @@ urlpatterns = [
     path('',a_view.home , name = 'home'),
     path('home/', a_view.home , name = 'home'),
     path('profile/', a_view.profile , name = 'profile'),
-    path('schedule/', a_view.schedule , name = 'schedule'),
     path('makeSchedule/', a_view.makeSchdedule , name= 'makeSchedule'),
     path('help/', a_view.help , name = 'help'),
     path('contact/', a_view.contact , name = 'contact'),
     path('schedulePost/', a_view.schedulePost , name = 'schedulePost'),
     path('timeTable/', a_view.timeTable , name = 'timeTable'),
-    path('createRider/', a_view.createRider , name = 'createRider'),
-    path('createDriver/', a_view.createDriver , name = 'createDriver'),
-    path('loginUser/',a_view.loginUser,name='loginUser'),
+    path('createRider', a_view.createRider , name = 'createRider'),
+    path('createDriver', a_view.createDriver , name = 'createDriver'),
+    path('loginUser',a_view.loginUser,name='loginUser'),
     path('logOutUser', a_view.logOutUser, name='logOutUser'),
     path('profileUpdate', a_view.profileUpdate, name='profileUpdate'),
-    path('changePassword',a_view.changePassword, name='changePassword')
+    path('changePassword',a_view.changePassword, name='changePassword'),
+    path('dailySchedule',a_view.dailySchedule, name='dailySchedule'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

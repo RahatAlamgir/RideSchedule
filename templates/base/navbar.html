@@ -12,7 +12,7 @@
                         <ul >
                             {% if user.is_authenticated %} 
                                 {% if request.user.profile.isRider %}
-                                    <li><a href="{% url 'schedule' %}">Daily Schedule</a></li>
+                                    <li><a href="{% url 'dailySchedule' %}">Daily Schedule</a></li>
 
                                     <li><a href="{% url 'schedule' %}">Weekly Schedule</a></li>
                                     <li><a href="{% url 'schedule' %}">Monthly Schedule</a></li><hr>
