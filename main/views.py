@@ -1,6 +1,7 @@
 from django.shortcuts import render ,redirect
 from .models import Profile, Schedule
 from .scheduleForm import *
+from .forms import *
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
@@ -147,5 +148,43 @@ def logOutUser(request):
     auth.logout(request)
     return redirect('/')
 
+@login_required(login_url='login')
+def profileUpdate(request):
+    formU = UserForm()
+    formP = ProfileForm()
+    user = User.objects.get(username = request.user.username)
+    print(user)
 
+    pro = Profile.objects.get( user = user)
+    print(pro)
+    formU = UserForm(instance = user)
+    formP = ProfileForm(instance = pro)
+    if request.method == 'POST':
+        formU = UserForm(request.POST, request.FILES, instance=user)
+        formP = ProfileForm(request.POST, request.FILES, instance=pro)
+        if formP.is_valid():
+            formP.save()
+        if formU.is_valid():
+            formU.save()
+        return redirect('profile')
+
+    context = {
+        'formP':formP,
+        'formU':formU
+    }
+
+    return render(request, 'update/profileUpdate.html',context)
+
+def changePassword(request):
+    form = ChangePassword()
+    user = User.objects.get(username = request.user.username)
+
+    form = ChangePassword(instance = user)
+
+    if request.method == 'POST':
+        form = ChangePassword(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+    return render(request, 'update/changePassword.html',{'form': form})
 

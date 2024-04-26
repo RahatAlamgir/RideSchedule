@@ -9,8 +9,5 @@ class ScheduleForm(ModelForm):
         model = Schedule
         fields = '__all__'
 
-class CreateRiderForm(UserCreationForm):
-    class Meta:
-        model = Profile
-        fields = '__all__'
+
 

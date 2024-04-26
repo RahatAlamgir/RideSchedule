@@ -6,9 +6,9 @@
         <ul>
             <li> <a href="{% url 'profile' %}"><i class='fas fa-user-circle' style='font-size:16px'></i> Profile</a></li>
             <li> <a href="#" onclick="showNotification()"><i class="fa fa-bell-o"></i> Notification</a></li>
-            <li> <a href="#"><i class='fas fa-lock'></i> Change Password</a></li>
+            <li> <a href="{% url 'changePassword' %}"><i class='fas fa-lock'></i> Change Password</a></li>
             <hr>
-            <li> <a href="{% url 'schedulePost' %}"><i class="fa fa-calendar"></i> All Schedule</a></li>
+            <li> <a href="{% url 'timeTable' %}"><i class="fa fa-calendar"></i> All Schedule</a></li>
             <li> <a href="#"><i class="fa fa-money"></i> Payment</a></li>
             <li> <a href="#"><i class="fa fa-history"></i> History</a></li>
             <li> <a href="#"><i class="fa fa-home"></i> Saved Address</a></li>
@@ -17,7 +17,7 @@
             <li> <a href="#"><i class="fa fa-globe"></i> Language</a></li>
             <hr>
             <li> <a href="#"><i class='far fa-question-circle'></i> Help</a></li>
-            <li> <a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+            <li> <a href="{% url 'profileUpdate' %}"><i class="fa fa-cog"></i> Settings</a></li>
             <li> <a href="{% url 'logOutUser' %}"><i class="fa fa-sign-out"></i> Log out</a></li>
 
         </ul>

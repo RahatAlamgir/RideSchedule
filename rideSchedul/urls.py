@@ -35,6 +35,8 @@ urlpatterns = [
     path('createDriver/', a_view.createDriver , name = 'createDriver'),
     path('loginUser/',a_view.loginUser,name='loginUser'),
     path('logOutUser', a_view.logOutUser, name='logOutUser'),
+    path('profileUpdate', a_view.profileUpdate, name='profileUpdate'),
+    path('changePassword',a_view.changePassword, name='changePassword')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

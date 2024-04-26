@@ -1,6 +1,19 @@
 {% extends "../base/base.html" %}
 {% load static %}
 {% block content %}
-<h1>update your profile</h1>
-<div><a href="{% url 'home' %}" class="logbutton">OK</a></div>
+
+<section class="contact">
+    <div class="contactFrom" >
+        <h2><b>update your profile</b></h2>
+    <form action="{% url 'profileUpdate' %}" method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        Username: {{request.user.username}}
+        {{formU.as_p}}
+        {{formP.as_p}}
+        <input type="submit" name="Submit" value="save">
+
+    </form>
+    </div>
+    
+</section>
 {% endblock %}
