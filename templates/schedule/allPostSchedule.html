@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
 <div class="post-box">
+    <h2>Pending:</h2>
     {% for p in schedulePost %}
-        {% if p.rider_id == request.user.profile %}
+        
+        {% if p.rider_id == request.user.profile and p.pending %}
         <div class="post">
             <div class="sTime"> Start time:{{p.pickUp_time}}</div>
             <div>
@@ -15,24 +17,44 @@
     
             </div>
             <div> 
-                price: {{p.price}}<br>
+                price: {{p.price}}TK<br>
                 status: pending
             </div>
-            <div>
-                
-                    <td><a href="#" class="confirmButton">Update</a></td>
-                    <td><a href="{% url 'deleteSchedule' p.id %}" class="deleteButton">Delete</a></td>
-                
-                {% comment %} <a href="#" class="btn btn-danger">Delete</a><br><br> {% endcomment %}
-                
+            <div> 
+                <td><a href="#" class="confirmButton">Update</a></td>
+                <td><a href="{% url 'deleteSchedule' p.id %}" class="deleteButton">Delete</a></td>        
             </div>
-            {% comment %} <div>
-                <a href="#" class="btn btn-danger">Delete</a>
-                <a href="#" class="btn btn-info">Update</a>
-            </div> {% endcomment %}
-            
+
 
         </div>
+        {% endif %}
+        
+    {% endfor %}
+    <h2>Accepted:</h2>
+    {% for p in schedulePost %}
+        {% if p.rider_id == request.user.profile and p.pending %}
+
+        {% else %}
+            <div class="post">
+                <div class="sTime"> Start time:{{p.pickUp_time}}<br>
+                    <span>Driver: {{p.driver_id}}</span>
+                </div>
+                <div>
+                    <span>Pick Up address : {{p.pickup_from}}</span><br>
+                    <span>Drop to address :{{p.drop_to}}</span>
+                </div>
+                <div> schedule type: {{p.type_of_schedule}}<br><br>
+                    {{p.startDate}} to {{p.endDate}}
+    
+                </div>
+                <div> 
+                    price: {{p.price}}TK<br>
+                    status: Accepted
+                </div>
+                <div> 
+                    <td><a href="{% url 'deleteSchedule' p.id %}" class="deleteButton">Cancel</a></td>        
+                </div>
+            </div>
         {% endif %}
     {% endfor %}
 

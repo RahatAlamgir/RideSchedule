@@ -28,7 +28,7 @@ urlpatterns = [
     path('makeSchedule/', a_view.makeSchdedule , name= 'makeSchedule'),
     path('help/', a_view.help , name = 'help'),
     path('contact/', a_view.contact , name = 'contact'),
-    path('schedulePost/', a_view.schedulePost , name = 'schedulePost'),
+    path('schedulePost', a_view.schedulePost , name = 'schedulePost'),
     path('timeTable/', a_view.timeTable , name = 'timeTable'),
     path('createRider', a_view.createRider , name = 'createRider'),
     path('createDriver', a_view.createDriver , name = 'createDriver'),
@@ -39,6 +39,7 @@ urlpatterns = [
     path('dailySchedule',a_view.dailySchedule, name='dailySchedule'),
     path('allPostSchedule',a_view.allPostSchedule, name='allPostSchedule'),
     path('deleteSchedule <str:id>', a_view.deleteSchedule, name='deleteSchedule'),
+    path('takeSchedule <str:id>',a_view.takeSchedule,name='takeSchedule'),
 
 
 ]

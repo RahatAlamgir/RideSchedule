@@ -25,6 +25,7 @@ class Schedule(models.Model):
     pickUp_time = models.CharField(max_length=10)
     pickup_from = models.CharField(max_length=50)
     drop_to = models.CharField(max_length=50)
+    pending = models.BooleanField(default=True)
     schedule_type = (
         ('daily','daily'),
         ('weekly', 'weekly'),

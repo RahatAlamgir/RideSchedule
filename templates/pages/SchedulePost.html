@@ -10,33 +10,33 @@
 </div>
 <div class="post-box">
 {% for p in schedulePost %}
-    <div class="post hoverPost">
-        <div class="sTime"> Start time:{{p.pickUp_time}}</div>
-    <div>
-        <span>Pick Up address : {{p.pickup_from}}</span><br>
-        <span>Drop to address :{{p.drop_to}}</span>
-    </div>
-    <div> schedule type: {{p.type_of_schedule}}<br><br>
-        {{p.startDate}} to {{p.endDate}}
+    {% if p.pending %}
+        <a href="{% url 'takeSchedule' p.id %}" class="post hoverPost">
+            <div class="sTime"> Start time:{{p.pickUp_time}}</div>
+            <div>
+                <span>Pick Up address : {{p.pickup_from}}</span><br>
+                <span>Drop to address :{{p.drop_to}}</span>
+            </div>
+            <div> schedule type: {{p.type_of_schedule}}<br><br>
+                {{p.startDate}} to {{p.endDate}}
     
-    </div>
-    <div> price: {{p.price}}</div>
-    <div>
-        <span>Name: {{p.rider_id}}</span><br>
-        <span>Phone: {{p.rider_id.phone}}</span><br>
-        <span>Rate: {{p.rider_id.rate}}</span><br>
-    </div>
-    <div class="profile">
+            </div>
+            <div> price: {{p.price}}TK</div>
+            <div>
+                <span>Name: {{p.rider_id}}</span><br>
+                <span>Phone: {{p.rider_id.phone}}</span><br>
+                <span>Rate: {{p.rider_id.rate}}</span><br>
+            </div>
+            <div class="profile">
 
-        {% if p.rider_id.image %}
-            <img src="{{p.rider_id.image.url}}" height="70" width="70" alt="logo">
-        {% else %} 
-            <img src="{%  static 'image/icon/profile.png' %}" height="70" width="70" alt="logo">
-       
-        {% endif %}
-    </div>
-
-</div>
+                {% if p.rider_id.image %}
+                    <img src="{{p.rider_id.image.url}}" height="70" width="70" alt="logo">
+                {% else %} 
+                    <img src="{%  static 'image/icon/profile.png' %}" height="70" width="70" alt="logo">    
+                {% endif %}
+            </div>
+        </a>
+    {% endif %}
 {% endfor %}
 
 </div>
