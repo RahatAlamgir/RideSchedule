@@ -9,6 +9,9 @@
             <form action="{% url 'dailySchedule' %}" method="POST">
 
                {% csrf_token %}
+               <div>
+                  <span>Set your Ride location</span>
+               </div>
                <div class="inputlocation">
                   <i class="fa fa-location"></i>
                   <input type="text" id="locationL" name="picklocation" placeholder="Enter location">           
@@ -58,19 +61,21 @@
                   
                </div> {% endcomment %}
                <div>
-                  <span>Starting Date</span>
+                  <span>Time Duration</span>
                </div>
-               <div class="inputtime"> 
-                  <input type="date" id="timeL" name="startDate" >
+               <div class="inputdate"> 
+                  <input type="date" id="dateL" name="startDate" >
+                  <span> _ </span>
+                  <input type="date" id="dateL" name="endDate">
                   
                </div>
-               <div>
+               {% comment %} <div>
                   <span>Ending Date</span>
                </div>
                <div class="inputtime"> 
                   <input type="date" id="timeL" name="endDate">
                   
-               </div>
+               </div> {% endcomment %}
                <div class="inputtime"> 
                   <input type="text" id="timeL" name="SPrice" placeholder="price">
                   

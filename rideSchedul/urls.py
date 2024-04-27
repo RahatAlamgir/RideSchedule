@@ -37,6 +37,9 @@ urlpatterns = [
     path('profileUpdate', a_view.profileUpdate, name='profileUpdate'),
     path('changePassword',a_view.changePassword, name='changePassword'),
     path('dailySchedule',a_view.dailySchedule, name='dailySchedule'),
+    path('allPostSchedule',a_view.allPostSchedule, name='allPostSchedule'),
+    path('deleteSchedule <str:id>', a_view.deleteSchedule, name='deleteSchedule'),
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

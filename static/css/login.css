@@ -126,11 +126,13 @@
     margin-bottom: 15px;
     width: 100%;
     align-content: center;
+    padding:12px;
 
  }
  .messageTitle h1{
     text-align: center;
     text-decoration: none;
+    padding:12px;
  }
 .messageButton{
     display: block;
@@ -139,7 +141,7 @@
     text-align: center;
     bottom:20px;
 }
-.messageButton a{
+.messageButton a , .messageButton .mbutton{
     background-color: #0491aa;
    border: none;
    color: white;
@@ -151,13 +153,43 @@
    border-radius: 25px;
 
 }
+
 .messagecart{
     text-align: center;
+    padding:12px;
+
 }
 .messagecart1{
     padding-left: 10px;
+    padding:12px;
 }
 
 .messageButton a:hover{
    background-color: #2fb2c9;
+ }
+ 
+ .deleteButton{
+    padding:10px;
+    border:none;
+    background-color: rgba(255, 0, 0, 0.774);
+    color:white;
+    border-radius:15px;
+    padding-left: 15px;
+    padding-right: 15px;
+ }
+ .deleteButton:hover{
+    background-color:brown;
+ }
+ .confirmButton{
+    padding:10px;
+    border:none;
+    background-color: rgba(8, 151, 32, 0.774);
+    color:white;
+    border-radius:15px;
+    padding-left: 15px;
+    padding-right: 15px;
+ }
+
+ .confirmButton:hover{
+    background-color:rgba(8, 151, 32, 0.568);
  }

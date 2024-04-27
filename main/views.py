@@ -221,3 +221,32 @@ def dailySchedule(request):
 
 
     return render(request,'schedule/dailySchedule.html')
+
+@login_required(login_url='login')
+def allPostSchedule(request):
+    schedulePost = Schedule.objects.all().order_by("pickUp_time")
+
+    posts = {
+        'schedulePost': schedulePost,
+    }
+    return render(request,'schedule/allPostSchedule.html',posts)
+
+def deleteSchedule(request , id):
+    schedule = Schedule.objects.get(pk = id)
+    context={
+        'title':'Delete Schedule',
+        'm1':'are your sure?',
+        'url':'allPostSchedule',
+    }
+    if request.method == 'POST':
+        schedule.delete()
+        return redirect('allPostSchedule')
+    return render(request, 'notification/confirm.html',context)
+
+def delete_service(request, id):
+    services = Services.objects.get(pk = id)
+    if request.method == 'POST':
+        services.delete()
+        return redirect('Services')
+
+    return render(request, template_name='hospital/delete_service.html')

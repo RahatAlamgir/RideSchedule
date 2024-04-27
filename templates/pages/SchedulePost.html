@@ -9,8 +9,8 @@
     <div><a href="#" class="buttonS">search</a></div>
 </div>
 <div class="post-box">
-    {% for p in schedulePost %}
-    <div class="post">
+{% for p in schedulePost %}
+    <div class="post hoverPost">
         <div class="sTime"> Start time:{{p.pickUp_time}}</div>
     <div>
         <span>Pick Up address : {{p.pickup_from}}</span><br>
@@ -28,12 +28,12 @@
     </div>
     <div class="profile">
 
-        {% comment %} {% if p.rider_id1.id.persons %}
-            <img src="{{p.rider_id1.id.persons.url}}" height="70" width="70" alt="logo">
-        {% else %} {% endcomment %}
+        {% if p.rider_id.image %}
+            <img src="{{p.rider_id.image.url}}" height="70" width="70" alt="logo">
+        {% else %} 
             <img src="{%  static 'image/icon/profile.png' %}" height="70" width="70" alt="logo">
        
-
+        {% endif %}
     </div>
 
 </div>

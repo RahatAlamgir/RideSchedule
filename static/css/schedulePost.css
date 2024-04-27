@@ -21,6 +21,9 @@
     background-color: #adf1fd;
     padding:10px;
     border-radius:15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0491aa;
 
 }
 .sTime{
@@ -78,4 +81,9 @@
     overflow: auto;
     z-index: -1;
     top:11vh;
+  }
+  .hoverPost:hover{
+    
+    border-width: 3px;
+    border-color: #0491aa;
   }
