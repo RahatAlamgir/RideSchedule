@@ -106,11 +106,18 @@
    justify-content: space-between;
    width: 100%;
 }
-.weeks .day{
+.weeks .weeklabel{
    display:block;
    background-color: rgb(214, 214, 214);
    color:rgb(46, 46, 46);
    padding:10px;
    font-size: 15px;
    border-radius: 15px;
+}
+.weekCheckbox{
+   display:none;
+}
+.weekCheckbox:checked + .weeklabel{
+   background-color: rgb(241, 121, 7);
+   color:white;
 }

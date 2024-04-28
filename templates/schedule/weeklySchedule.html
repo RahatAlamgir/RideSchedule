@@ -6,9 +6,12 @@
 </div>
 <div class="container">
          <div class="form">
-            <form action="{% url 'dailySchedule' %}" method="POST">
+            <form action="{% url 'weeklySchedule' %}" method="POST">
 
                {% csrf_token %}
+               <div>
+                  <span>Set your Ride location</span>
+               </div>
                <div class="inputlocation">
                   <i class="fa fa-location"></i>
                   <input type="text" id="locationL" name="picklocation" placeholder="Enter location">           
@@ -51,37 +54,38 @@
                         
                     </select>
                   
-               </div>
-               {% comment %} <div class="inputtime"> 
-                  <input type="text" id="timeL" name="endTime" placeholder="end time">
                   
-               </div> {% endcomment %}
+               </div>
+               
                <div>
-                  <span>Starting Date</span>
+                  <span>Time Duration</span>
                </div>
-               <div class="inputtime"> 
-                  <input type="date" id="timeL" name="startDate" >
+               <div class="inputdate"> 
+                  <input type="date" id="dateL" name="startDate" >
+                  <span> _ </span>
+                  <input type="date" id="dateL" name="endDate">
                   
                </div>
-               <div>
-                  <span>Ending Date</span>
-               </div>
-               <div class="inputtime"> 
-                  <input type="date" id="timeL" name="endDate">
-                  
-               </div>
+               
                <div class="inputtime"> 
                   <input type="text" id="timeL" name="SPrice" placeholder="price">
                   
                </div>
                <div class="weeks">
-                  <a href="#" class="day">SUN</a>
-                  <a href="#" class="day">MON</a>
-                  <a href="#" class="day">TUE</a>
-                  <a href="#" class="day">WED</a>
-                  <a href="#" class="day">THE</a>
-                  <a href="#" class="day">FRI</a>  
-                  <a href="#" class="day">SAT</a>
+                  <input type="checkbox" id="SUN" name="SUN" value="SUN" class='weekCheckbox'>
+                  <label for="SUN" class='weeklabel'>SUN</label>
+                  <input type="checkbox" id="MON" name="MON" value="MON" class='weekCheckbox'>
+                  <label for="MON" class='weeklabel'>MON</label>
+                  <input type="checkbox" id="TUE" name="TUE" value="TUE" class='weekCheckbox'>
+                  <label for="TUE" class='weeklabel'>TUE</label>
+                  <input type="checkbox" id="WED" name="WED" value="WED" class='weekCheckbox'>
+                  <label for="WED" class='weeklabel'>WED</label>
+                  <input type="checkbox" id="THE" name="THE" value="THE" class='weekCheckbox'>
+                  <label for="THE" class='weeklabel'>THE</label>
+                  <input type="checkbox" id="FRI" name="FRI" value="FRI" class='weekCheckbox'>
+                  <label for="FRI" class='weeklabel'>FRI</label>
+                  <input type="checkbox" id="SAT" name="SAT" value="SAT" class='weekCheckbox'>
+                  <label for="SAT" class='weeklabel'>SAT</label>
                </div>
 
                <div class="submitBtn"><input value="Submit" type="submit"></div>

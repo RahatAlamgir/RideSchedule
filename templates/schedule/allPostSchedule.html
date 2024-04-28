@@ -1,6 +1,8 @@
 {% extends "../base/base.html" %}
 {% load static %}
 {% block content %}
+
+{% if request.user.profile.isRider %}
 <div class="post-box">
     <h2>Pending:</h2>
     {% for p in schedulePost %}
@@ -13,6 +15,9 @@
                 <span>Drop to address :{{p.drop_to}}</span>
             </div>
             <div> schedule type: {{p.type_of_schedule}}<br><br>
+            {% if p.weeks %}
+                {{p.weeks}}<br><br>
+            {% endif %}
                 {{p.startDate}} to {{p.endDate}}
     
             </div>
@@ -44,6 +49,9 @@
                     <span>Drop to address :{{p.drop_to}}</span>
                 </div>
                 <div> schedule type: {{p.type_of_schedule}}<br><br>
+                {% if p.weeks %}
+                {{p.weeks}}<br><br>
+                {% endif %}
                     {{p.startDate}} to {{p.endDate}}
     
                 </div>
@@ -59,4 +67,49 @@
     {% endfor %}
 
 </div>
+{% else %}
+<div class="post-box">
+{% for p in schedulePost %}
+    {% if p.driver_id %}
+        {% if request.user.username == p.driver_id %}
+        <div class="post">
+            <div class="profile">
+
+                {% if p.rider_id.image %}
+                    <img src="{{p.rider_id.image.url}}" height="70" width="70" alt="logo">
+                {% else %} 
+                    <img src="{%  static 'image/icon/profile.png' %}" height="70" width="70" alt="logo">    
+                {% endif %}
+            </div>
+            <div>
+                <span>Name: {{p.rider_id}}</span><br>
+                <span>Phone: {{p.rider_id.phone}}</span><br>
+                <span>Rate: {{p.rider_id.rate}}</span><br>
+            </div>
+            <div class="sTime"> Start time:{{p.pickUp_time}}</div>
+            <div>
+                <span>Pick Up address : {{p.pickup_from}}</span><br>
+                <span>Drop to address :{{p.drop_to}}</span>
+            </div>
+            <div> schedule type: {{p.type_of_schedule}}<br><br>
+            {% if p.weeks %}
+                {{p.weeks}}<br><br>
+            {% endif %}
+                {{p.startDate}} to {{p.endDate}}
+    
+            </div>
+            <div> price: {{p.price}}TK</div>
+            
+            
+            <div> 
+                <td><a href="#" class="confirmButton">Notify</a></td>
+                <td><a href="{% url 'deleteSchedule' p.id %}" class="deleteButton">Cancel</a></td>       
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+</div>
+{% endif %}
 {% endblock %}

@@ -35,7 +35,9 @@ class Schedule(models.Model):
     price = models.IntegerField(blank=True, null=True)
     startDate = models.CharField(max_length=30,blank=True,null=True)
     endDate = models.CharField(max_length=30,blank=True,null=True)
+    weeks = models.CharField(max_length=30,blank=True,null=True)
 
-
+    def __str__(self):
+        return self.pickUp_time
 
 

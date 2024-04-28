@@ -214,13 +214,44 @@ def dailySchedule(request):
         schedule.save()
         context = { 
             'title':'SuccessFull',
-            'm1': 'schedule create successfull',
+            'm1': 'schedule created successfull',
             'url':'home',
             }
         return render(request , 'notification/message.html' , context)
 
 
     return render(request,'schedule/dailySchedule.html')
+
+@login_required(login_url='login')
+def weeklySchedule(request):
+    if request.method == 'POST':
+        rider = request.user.profile
+        pickUp_time = request.POST.get('startTime')
+        pickUp_from = request.POST.get('picklocation')
+        drop_to = request.POST.get('droplocation')
+        price = request.POST.get('SPrice')
+        startDate = request.POST.get('startDate')
+        endDate = request.POST.get('endDate')
+        week=''
+        if(request.POST.get('SUN')): week = week+request.POST.get('SUN')
+        if(request.POST.get('MON')): week = week+' '+request.POST.get('MON')
+        if(request.POST.get('TUE')): week = week+' '+request.POST.get('TUE')
+        if(request.POST.get('WED')): week = week+' '+request.POST.get('WED')
+        if(request.POST.get('THE')): week = week+' '+request.POST.get('THE')
+        if(request.POST.get('FRI')): week = week+' '+request.POST.get('FRI')
+        if(request.POST.get('SAT')): week = week+' '+request.POST.get('SAT')
+
+        schedule = Schedule.objects.create(rider_id=rider,pickUp_time=pickUp_time,pickup_from=pickUp_from,drop_to=drop_to,type_of_schedule='weekly',price=price,startDate=startDate,endDate=endDate,weeks=week)
+        schedule.save()
+        context = { 
+            'title':'SuccessFull',
+            'm1': 'schedule created successfull',
+            'url':'home',
+            }
+        return render(request , 'notification/message.html' , context)
+
+
+    return render(request,'schedule/weeklySchedule.html')
 
 @login_required(login_url='login')
 def allPostSchedule(request):

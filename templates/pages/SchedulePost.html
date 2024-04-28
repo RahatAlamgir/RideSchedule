@@ -18,6 +18,9 @@
                 <span>Drop to address :{{p.drop_to}}</span>
             </div>
             <div> schedule type: {{p.type_of_schedule}}<br><br>
+            {% if p.weeks %}
+                {{p.weeks}}<br><br>
+            {% endif %}
                 {{p.startDate}} to {{p.endDate}}
     
             </div>

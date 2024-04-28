@@ -37,6 +37,7 @@ urlpatterns = [
     path('profileUpdate', a_view.profileUpdate, name='profileUpdate'),
     path('changePassword',a_view.changePassword, name='changePassword'),
     path('dailySchedule',a_view.dailySchedule, name='dailySchedule'),
+    path('weeklySchedule',a_view.weeklySchedule, name='weeklySchedule'),
     path('allPostSchedule',a_view.allPostSchedule, name='allPostSchedule'),
     path('deleteSchedule <str:id>', a_view.deleteSchedule, name='deleteSchedule'),
     path('takeSchedule <str:id>',a_view.takeSchedule,name='takeSchedule'),

@@ -12,9 +12,13 @@
     <div class="image-div">
         <img src="{%  static 'image/img/scheduleNow.png' %}" class="scheduleNowImg" alt="bg" height="300" width="650">
     </div>
-    
-    <a href="{% url 'makeSchedule' %}" class="button">Make your schedule ></a>
-    
+    {% if user.is_authenticated %}
+        {% if user.profile.isRider %}
+        <a href="{% url 'dailySchedule' %}" class="button">Make your schedule ></a>
+        {% endif %}
+    {% else %}
+        <a href="#" class="button" onclick="showLoginOnly()">Make your schedule ></a>
+    {% endif %}
 </div>
 
 

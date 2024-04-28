@@ -14,7 +14,7 @@
                                 {% if request.user.profile.isRider %}
                                     <li><a href="{% url 'dailySchedule' %}">Daily Schedule</a></li>
 
-                                    <li><a href="#">Weekly Schedule</a></li>
+                                    <li><a href="{% url 'weeklySchedule' %}">Weekly Schedule</a></li>
                                     <li><a href="#">Monthly Schedule</a></li><hr>
                                     <li><a href="{% url 'makeSchedule' %}">Custom Schedule</a></li>
                                 {% else %}
