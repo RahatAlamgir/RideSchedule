@@ -11,7 +11,7 @@ class UserForm(ModelForm):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['phone','address','country','rate','image']
+        fields = ['phone','address','country','image']
 
 class ChangePassword(ModelForm):
     class Meta:

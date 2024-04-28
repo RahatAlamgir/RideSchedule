@@ -11,6 +11,38 @@
 
     </div>
     <div class="profileRate">
+    {% if request.user.profile.isRider %}
+        <table class="profileTableRate">
+            <tr>
+                <td>Ratings</td>
+            </tr>
+            <tr>
+                <td>{{request.user.profile.rate}}/5.0</td>
+            </tr>
+        </table>
+    {% else %}
+        <table class="profileTableRate">
+            <tr>
+                <td>Ratings</td>
+            </tr>
+            <tr>
+                <td>{{request.user.profile.rate}}/5.0</td>
+            </tr>
+            <tr>
+                <td>Bike Model</td>
+            </tr>
+            <tr>
+            <td>BAJAJ PULSAR N160</td>
+            </tr>
+            <tr>
+                <td>Model Number</td>
+            </tr>
+            <tr>
+                <td>Dhaka Metro GA-45-2873</td>
+            </tr>
+        </table>
+
+    {% endif %}
         <table class="profileTableRate">
             <tr>
                 <td>Ratings</td>

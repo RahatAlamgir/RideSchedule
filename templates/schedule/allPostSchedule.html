@@ -37,9 +37,10 @@
     {% endfor %}
     <h2>Accepted:</h2>
     {% for p in schedulePost %}
-        {% if p.rider_id == request.user.profile and p.pending %}
+        {% if p.rider_id == request.user.profile %}
+            {% if p.pending %}
 
-        {% else %}
+            {% else %}
             <div class="post">
                 <div class="sTime"> Start time:{{p.pickUp_time}}<br>
                     <span>Driver: {{p.driver_id}}</span>
@@ -63,6 +64,7 @@
                     <td><a href="{% url 'deleteSchedule' p.id %}" class="deleteButton">Cancel</a></td>        
                 </div>
             </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 
