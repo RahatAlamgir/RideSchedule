@@ -30,6 +30,9 @@ urlpatterns = [
     path('contact/', a_view.contact , name = 'contact'),
     path('schedulePost', a_view.schedulePost , name = 'schedulePost'),
     path('timeTable/', a_view.timeTable , name = 'timeTable'),
+    path('policy', a_view.policy, name = 'policy'),
+
+
     path('createRider', a_view.createRider , name = 'createRider'),
     path('createDriver', a_view.createDriver , name = 'createDriver'),
     path('loginUser',a_view.loginUser,name='loginUser'),
@@ -38,9 +41,12 @@ urlpatterns = [
     path('changePassword',a_view.changePassword, name='changePassword'),
     path('dailySchedule',a_view.dailySchedule, name='dailySchedule'),
     path('weeklySchedule',a_view.weeklySchedule, name='weeklySchedule'),
+    path('monthlySchedule',a_view.monthlySchedule, name='monthlySchedule'),
+
     path('allPostSchedule',a_view.allPostSchedule, name='allPostSchedule'),
     path('deleteSchedule <str:id>', a_view.deleteSchedule, name='deleteSchedule'),
     path('takeSchedule <str:id>',a_view.takeSchedule,name='takeSchedule'),
+    path('deleteNotification <str:id>',a_view.deleteNotification,name='deleteNotification'),
 
 
 ]

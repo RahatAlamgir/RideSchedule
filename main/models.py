@@ -41,3 +41,8 @@ class Schedule(models.Model):
         return self.pickUp_time
 
 
+class Notification(models.Model):
+    user_id = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    title = models.CharField(blank=True,null=True,max_length=20)
+    message = models.CharField(blank=True,null=True,max_length=50)
+    

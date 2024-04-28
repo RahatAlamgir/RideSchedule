@@ -80,7 +80,9 @@
     position: absolute;
 
 }
-.close:hover{
+
+
+.close:hover {
     color:red;
 }
 .smenu , .nmenu{

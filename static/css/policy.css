@@ -1,0 +1,85 @@
+.policy-body{
+    margin : 0;
+    padding : 0;
+    min-height: 100vh;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.policy-box{
+    max-width:60%;
+    height: auto;
+    background-color: rgb(22, 136, 168);
+    color: aliceblue;
+    font-family: "Montserrat";
+    padding: 60px 30px;
+}
+.policy-text{
+    padding: 0 20px;
+    height: 400px;
+    overflow-y: auto;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f1f1f1;
+
+}
+.base-body::-webkit-scrollbar{
+    width:0px;
+}
+.policy-text::-webkit-scrollbar{
+    width:2px;
+    background-color: #282828;
+}
+
+.policy-text::-webkit-scrollbar-thumb{
+    background-color: #f1f1f1;
+}
+
+.policy-text h2{
+    text-transform: upercase;
+}
+.policy-box h4{
+    font-size: 13px;
+    text-align: center;
+    padding: 0 40px;
+}
+
+
+
+.btn{
+    height: 30px;
+    
+    padding: 7px 40px 7px 40px;
+    width: 30%;
+    border:0;
+    font-size: 19px;
+    font-weight:200;
+    align-items: center;
+    color: #fff;
+    transition: .3s linear ;
+    
+}
+.buttons{
+    display:block;
+    padding: 0 20px;
+    width: 95%;
+    text-align: center;
+    margin-top: 15px;
+    
+}
+
+.green-btn{
+    background-color: rgb(2, 90, 60);
+    border-radius: 25px;
+
+}
+.btn:hover{
+    opacity: .6;
+
+}
+
+
+
+
+

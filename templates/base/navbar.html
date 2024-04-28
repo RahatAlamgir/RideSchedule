@@ -15,15 +15,15 @@
                                     <li><a href="{% url 'dailySchedule' %}">Daily Schedule</a></li>
 
                                     <li><a href="{% url 'weeklySchedule' %}">Weekly Schedule</a></li>
-                                    <li><a href="#">Monthly Schedule</a></li><hr>
+                                    <li><a href="{% url 'monthlySchedule' %}">Monthly Schedule</a></li><hr>
                                     <li><a href="{% url 'makeSchedule' %}">Custom Schedule</a></li>
                                 {% else %}
                                     <li><a href="{% url 'schedulePost' %}">Take a Schedule</a></li><hr>
-                                    <li><a href="#">Policies</a></li>
+                                    <li><a href="{% url 'policy' %}">Policies</a></li>
                                     <li><a href="#">Emergency Support</a></li>
                                 {% endif %}
                             {% else %}
-                            <li><a href="#">Policies</a></li>
+                            <li><a href="{% url 'policy' %}">Policies</a></li>
                             <li><a href="#">Emergency Support</a></li>
                             {% endif %}
 
@@ -66,7 +66,7 @@
                             <li><a href="#">Permissions</a></li>
                             <li><a href="#">Rate Us</a></li>
                             {% if user.is_authenticated %} 
-                                <li><a href="#">Policies</a></li>
+                                <li><a href="{% url 'policy' %}">Policies</a></li>
                                 <li><a href="#">Emergency Support</a></li>
                             {% endif %}
 

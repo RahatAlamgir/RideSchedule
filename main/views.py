@@ -17,7 +17,7 @@ def createRider(request):
         password = request.POST.get('password')
         cpassword = request.POST.get('cpassword')
         
-        if password==cpassword and uniqueUserName(username):
+        if password==cpassword and uniqueUserName(username) and len(password) > 3 and len(email)>1:
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
 
@@ -52,7 +52,7 @@ def createDriver(request):
         cpassword = request.POST.get('cpassword')
 
 
-        if password==cpassword and uniqueUserName(username):
+        if password==cpassword and uniqueUserName(username) and len(password) > 3 and len(email)>1 : 
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
             context = { 
@@ -84,22 +84,45 @@ def uniqueUserName(uname):
     return True
 
 def home(request):
-    return render(request , template_name='pages/home.html')
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request , 'pages/home.html',context)
+
+def policy(request):
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request , 'pages/policy.html',context)
 
 @login_required(login_url='login')
 def profile(request):
-    return render(request, template_name='pages/profile.html')
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request,'pages/profile.html',context)
 
 
 def makeSchdedule(request):
     return render(request, template_name='pages/makeSchedule.html')
 
 def help(request):
-    return render(request, template_name='pages/help.html')
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request, 'pages/help.html',context)
 
 
 def contact(request):
-    return render(request, template_name='pages/contact.html')
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request, 'pages/contact.html',context)
 
 @login_required(login_url='login')
 def timeTable(request):
@@ -108,9 +131,10 @@ def timeTable(request):
 @login_required(login_url='login')
 def schedulePost(request):
     schedulePost = Schedule.objects.all().order_by("pickUp_time")
-
+    notification = Notification.objects.all()
     posts = {
         'schedulePost': schedulePost,
+        'notification':notification,
     }
     return render(request, template_name='pages/SchedulePost.html', context=posts)
 
@@ -254,6 +278,37 @@ def weeklySchedule(request):
     return render(request,'schedule/weeklySchedule.html')
 
 @login_required(login_url='login')
+def monthlySchedule(request):
+    if request.method == 'POST':
+        rider = request.user.profile
+        pickUp_time = request.POST.get('startTime')
+        pickUp_from = request.POST.get('picklocation')
+        drop_to = request.POST.get('droplocation')
+        price = request.POST.get('SPrice')
+        startDate = request.POST.get('startDate')
+        endDate = request.POST.get('endDate')
+        week=''
+        if(request.POST.get('SUN')): week = week+request.POST.get('SUN')
+        if(request.POST.get('MON')): week = week+' '+request.POST.get('MON')
+        if(request.POST.get('TUE')): week = week+' '+request.POST.get('TUE')
+        if(request.POST.get('WED')): week = week+' '+request.POST.get('WED')
+        if(request.POST.get('THE')): week = week+' '+request.POST.get('THE')
+        if(request.POST.get('FRI')): week = week+' '+request.POST.get('FRI')
+        if(request.POST.get('SAT')): week = week+' '+request.POST.get('SAT')
+
+        schedule = Schedule.objects.create(rider_id=rider,pickUp_time=pickUp_time,pickup_from=pickUp_from,drop_to=drop_to,type_of_schedule='monthly',price=price,startDate=startDate,endDate=endDate,weeks=week)
+        schedule.save()
+        context = { 
+            'title':'SuccessFull',
+            'm1': 'schedule created successfull',
+            'url':'home',
+            }
+        return render(request , 'notification/message.html' , context)
+
+
+    return render(request,'schedule/monthlySchedule.html')
+
+@login_required(login_url='login')
 def allPostSchedule(request):
     schedulePost = Schedule.objects.all().order_by("pickUp_time")
 
@@ -278,6 +333,9 @@ def deleteSchedule(request , id):
 @login_required(login_url='login')
 def takeSchedule(request , id):
     schedule= Schedule.objects.get(pk = id)
+    user_id = schedule.rider_id
+    user = request.user.username
+    message = user+ ', Accepted your schedule'
     context={
         'title':'Take Schedule',
         'm2':'Do you want to take this schedule?',
@@ -288,6 +346,20 @@ def takeSchedule(request , id):
     if request.method == 'POST':
         schedule.pending = False
         schedule.driver_id = request.user.username
+        Notification.objects.create(user_id=user_id,message=message)
         schedule.save()
+        
         return redirect('schedulePost')
     return render(request, 'notification/confirm.html',context)
+
+def deleteNotification(request,id):
+    try:
+        noti = Notification.objects.get(pk = id)
+        noti.delete()
+    except:
+        pass
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request , 'pages/home.html',context)

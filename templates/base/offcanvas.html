@@ -27,9 +27,12 @@
         <span class ="close" onclick="hideNotification()">&times;</span>
         <h2>Notifications</h2>
         <ul> 
-            <li> <a href="#"> Notification</a></li>
-            <li> <a href="#"> Notification</a></li>
-            <li> <a href="#"> Notification</a></li>
+            {% for n in notification %}
+                {% if n.user_id == request.user.profile %}
+                    <li> <a href="{% url 'deleteNotification' n.id %}"> {{n.message}} </a></li>
+                {% endif %}
+            {% endfor %}
+            
         </ul>
         
     </div>
