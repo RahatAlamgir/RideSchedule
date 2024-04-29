@@ -6,7 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     
     phone = models.CharField(max_length=20,null=True,blank=True)
-    address = models.TextField(null=True, blank=True)
+    address = models.CharField(max_length=50,null=True, blank=True)
     country = models.CharField(max_length=50,null=True,blank=True)
     rate = models.FloatField(null=True,blank=True)
 

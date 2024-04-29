@@ -1,19 +1,52 @@
 {% extends "../base/base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 {% block content %}
 
-<section class="contact">
-    <div class="contactFrom" >
+
+    <div class="main-form-box" >
         <h2><b>update your profile</b></h2>
-    <form action="{% url 'profileUpdate' %}" method="POST" enctype="multipart/form-data" >
+        <form action="" method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
-        Username: {{request.user.username}}
+        <div class="field-box"><label class='text-label'>First name:</label>
+        <div class="form-field">{% render_field formU.first_name placeholder="name" class="form-control-field"%}</div>
+        </div>
+
+        <div class="field-box"><label class='text-label'>Last Name:</label>
+            <div class="form-field">{% render_field formU.last_name placeholder="name" class="form-control-field"%}</div>
+        </div>
+
+        <div class="field-box"><label class='text-label'>Email address:</label>
+            <div class="form-field">{% render_field formU.email placeholder="email" class="form-control-field"  %}</div>
+        </div>
+
+
+        <div class="field-box"><label class='text-label'>Phone Number:</label>
+        <div class="form-field">{% render_field formP.phone placeholder="number" class="form-control-field"%}</div>
+        </div>
+
+        <div class="field-box"><label class='text-label'>Address:</label>
+        <div class="form-field">{% render_field formP.address placeholder="address" class="form-control-field"%}</div>
+        </div>
+
+        <div class="field-box"><label class='text-label'>Country:</label>
+        <div class="form-field">{% render_field formP.country placeholder="country" class="form-control-field"%}</div>
+        </div>
+
+        <div class="field-box"><label class='text-label'>Image:</label>
+            <div class="form-field">{% render_field formP.image placeholder="image" class="form-control-field"%}</div>
+         </div>
+
+
+
+
+        <!-- Username: {{request.user.username}}
         {{formU.as_p}}
-        {{formP.as_p}}
-        <input type="submit" name="Submit" value="save">
+        {{formP.as_p}} -->
+        <div style="text-align:center; margin-top:5px;"><input type="submit" name="Submit" value="save" class="confirmButton"></div>
+
 
     </form>
     </div>
-    
-</section>
+
 {% endblock %}
