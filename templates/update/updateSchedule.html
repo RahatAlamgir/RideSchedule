@@ -1,0 +1,41 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+
+<div class = "main-form-box">
+    <h2><b>update Schedule</b></h2><br>
+    <form action="" method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="field-box"><label class='text-label'>From:</label>
+        <div class="form-field">{% render_field form.pickup_from placeholder="location" class="form-control-field"%}</div>
+        </div>
+        <div class="field-box"><label class='text-label'>To:</label>
+        <div class="form-field">{% render_field form.drop_to placeholder="location" class="form-control-field"%}</div>
+        </div>
+        <div class="field-box"><label class='text-label'>Start Time:</label>
+        <div class="form-field">{% render_field form.pickUp_time placeholder="location" class="form-control-field"%}</div>
+        </div>
+        <div class="field-box"><label class='text-label'>Schedule type:</label>
+        <div class="form-field">{% render_field form.type_of_schedule placeholder="location" class="form-control-field"%}</div>
+        </div>
+        <div class="field-box"><label class='text-label'>Start Date:</label>
+        <div class="form-field">{% render_field form.startDate placeholder="location" class="form-control-field"%}</div>
+        </div>
+        <div class="field-box"><label class='text-label'>End Date:</label>
+        <div class="form-field">{% render_field form.endDate placeholder="location" class="form-control-field"%}</div>
+        </div>
+        <div class="field-box"><label class='text-label'>Price:</label>
+        <div class="form-field">{% render_field form.price placeholder="location" class="form-control-field"%}</div>
+        </div>
+    
+        
+        <div style="text-align:center; margin-top:5px;"><input type="submit" name="Submit" value="Save" class="confirmButton"></div>
+
+    </form>
+   
+        
+</div>
+{% endblock %}

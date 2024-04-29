@@ -193,3 +193,7 @@
  .confirmButton:hover{
     background-color:rgba(8, 151, 32, 0.568);
  }
+ .priceT {
+    width:100%;
+    font-size: 20px;
+ }

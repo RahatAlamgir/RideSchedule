@@ -26,7 +26,7 @@
                 status: pending
             </div>
             <div> 
-                <td><a href="#" class="confirmButton">Update</a></td>
+                <td><a href="{% url 'updateSchedule' p.id %}" class="confirmButton">Update</a></td>
                 <td><a href="{% url 'deleteSchedule' p.id %}" class="deleteButton">Delete</a></td>        
             </div>
 

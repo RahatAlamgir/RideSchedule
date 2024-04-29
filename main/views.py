@@ -1,5 +1,5 @@
 from django.shortcuts import render ,redirect
-from .models import Profile, Schedule
+from .models import Profile, Schedule ,Notification
 from .scheduleForm import *
 from .forms import *
 from django.contrib.auth.models import User, auth
@@ -124,6 +124,13 @@ def contact(request):
     }
     return render(request, 'pages/contact.html',context)
 
+def rateUs(request):
+    notification = Notification.objects.all()
+    context={
+        'notification':notification
+    }
+    return render(request, 'pages/rateUs.html',context)
+
 @login_required(login_url='login')
 def timeTable(request):
     return render(request, template_name='pages/timeTable.html')
@@ -169,6 +176,27 @@ def loginUser(request):
 def logOutUser(request):
     auth.logout(request)
     return redirect('/')
+
+@login_required(login_url='login')
+def updateSchedule(request, id):
+    try:
+        schedule = Schedule.objects.get(pk = id)
+        form = ScheduleForm(instance=schedule)
+    
+        if request.method == 'POST':
+            form = ScheduleForm(request.POST, request.FILES, instance=schedule)
+            if form.is_valid():
+                form.save()
+                context = { 
+                'title':'Successfull',
+                'm1': request.user.username,
+                'm2':'your schedule Update Successfull',
+                'url':'allPostSchedule',
+                }
+                return render(request , 'notification/message.html' , context)
+        return render(request, 'update/updateSchedule.html',{'form': form })
+    except:
+        return render(request, 'update/updateSchedule.html')
 
 @login_required(login_url='login')
 def profileUpdate(request):

@@ -74,3 +74,47 @@ body{
    color:white;
    margin-right: 20px;
 }
+.form-control-field{
+   
+   border-radius: 4px;
+   font-size: 20px;
+   padding-left:10px;
+   border-width: 1px;
+   width: 95%;
+   margin-bottom: 5px;
+   
+
+}
+.text-label{
+   font-size: 14px;
+   color:#3c3d3d;
+}
+.from-field{
+   
+   width: 100px;
+}
+.main-form-box{
+   display:block;
+   position: absolute;
+   border-style: solid;
+   border-color:#00bcd4;
+   border-radius: 20px;
+   border-width: 3px;
+   margin-left: 40%;
+   margin-top: 5%;
+   min-height: 20vh;
+   min-width: 40vh;
+   padding:40px;
+   background-color: white;
+}
+.field-box{
+   display: block;
+   width: 100%;
+   
+   
+   border-radius: 20px;
+   border-width: 1px;
+   font-size: 20px;
+   
+   
+}
