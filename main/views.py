@@ -243,7 +243,7 @@ def changePassword(request):
         if form.is_valid():
             form.save()
             context = { 
-            'title':'SuccessFull',
+            'title':'Successfull',
             'm1': 'Password change successfull',
             'url':'home',
             }
@@ -265,7 +265,7 @@ def dailySchedule(request):
         schedule = Schedule.objects.create(rider_id=rider,pickUp_time=pickUp_time,pickup_from=pickUp_from,drop_to=drop_to,type_of_schedule='daily',price=price,startDate=startDate,endDate=endDate)
         schedule.save()
         context = { 
-            'title':'SuccessFull',
+            'title':'Successfull',
             'm1': 'schedule created successfull',
             'url':'home',
             }
@@ -296,7 +296,7 @@ def weeklySchedule(request):
         schedule = Schedule.objects.create(rider_id=rider,pickUp_time=pickUp_time,pickup_from=pickUp_from,drop_to=drop_to,type_of_schedule='weekly',price=price,startDate=startDate,endDate=endDate,weeks=week)
         schedule.save()
         context = { 
-            'title':'SuccessFull',
+            'title':'Successfull',
             'm1': 'schedule created successfull',
             'url':'home',
             }
@@ -327,7 +327,7 @@ def monthlySchedule(request):
         schedule = Schedule.objects.create(rider_id=rider,pickUp_time=pickUp_time,pickup_from=pickUp_from,drop_to=drop_to,type_of_schedule='monthly',price=price,startDate=startDate,endDate=endDate,weeks=week)
         schedule.save()
         context = { 
-            'title':'SuccessFull',
+            'title':'Successfull',
             'm1': 'schedule created successfull',
             'url':'home',
             }
